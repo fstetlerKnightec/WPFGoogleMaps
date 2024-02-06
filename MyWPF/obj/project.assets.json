@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Programming\\C#\\FredriksWPF\\MyWPF\\MyWPF.csproj",
+      "projectUniqueName": "C:\\Programming\\C#\\WPF_fstetler\\MyWPF\\MyWPF.csproj",
       "projectName": "MyWPF",
-      "projectPath": "C:\\Programming\\C#\\FredriksWPF\\MyWPF\\MyWPF.csproj",
+      "projectPath": "C:\\Programming\\C#\\WPF_fstetler\\MyWPF\\MyWPF.csproj",
       "packagesPath": "C:\\Users\\frste\\.nuget\\packages\\",
-      "outputPath": "C:\\Programming\\C#\\FredriksWPF\\MyWPF\\obj\\",
+      "outputPath": "C:\\Programming\\C#\\WPF_fstetler\\MyWPF\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\frste\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -53,8 +53,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Programming\\C#\\FredriksWPF\\MyClassLibrary\\MyClassLibrary.csproj": {
-              "projectPath": "C:\\Programming\\C#\\FredriksWPF\\MyClassLibrary\\MyClassLibrary.csproj"
+            "C:\\Programming\\C#\\WPF_fstetler\\MyClassLibrary\\MyClassLibrary.csproj": {
+              "projectPath": "C:\\Programming\\C#\\WPF_fstetler\\MyClassLibrary\\MyClassLibrary.csproj"
             }
           }
         }

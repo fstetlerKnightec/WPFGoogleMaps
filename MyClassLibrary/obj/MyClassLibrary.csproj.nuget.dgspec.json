@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Programming\\C#\\FredriksWPF\\MyClassLibrary\\MyClassLibrary.csproj": {}
+    "C:\\Programming\\C#\\WPF_fstetler\\MyClassLibrary\\MyClassLibrary.csproj": {}
   },
   "projects": {
-    "C:\\Programming\\C#\\FredriksWPF\\MyClassLibrary\\MyClassLibrary.csproj": {
+    "C:\\Programming\\C#\\WPF_fstetler\\MyClassLibrary\\MyClassLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Programming\\C#\\FredriksWPF\\MyClassLibrary\\MyClassLibrary.csproj",
+        "projectUniqueName": "C:\\Programming\\C#\\WPF_fstetler\\MyClassLibrary\\MyClassLibrary.csproj",
         "projectName": "MyClassLibrary",
-        "projectPath": "C:\\Programming\\C#\\FredriksWPF\\MyClassLibrary\\MyClassLibrary.csproj",
+        "projectPath": "C:\\Programming\\C#\\WPF_fstetler\\MyClassLibrary\\MyClassLibrary.csproj",
         "packagesPath": "C:\\Users\\frste\\.nuget\\packages\\",
-        "outputPath": "C:\\Programming\\C#\\FredriksWPF\\MyClassLibrary\\obj\\",
+        "outputPath": "C:\\Programming\\C#\\WPF_fstetler\\MyClassLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\frste\\AppData\\Roaming\\NuGet\\NuGet.Config",

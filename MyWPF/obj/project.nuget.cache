@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "8loOQYioHWa0m5iX3qXclNBIKlaWXVRWKpzi6zzzcloSQ5oMZg3F526SPZR8IcVTpbHcBK2PLrqL3IUKz0Bdbw==",
+  "dgSpecHash": "OGtlUU1oKEXsDUKrYEVMHm1Y3UKvWdj8EPsMXb2t+6UTIJx2wBDqzdOcDdhbNF8DC43n5JUy9siBZqhVhRTpzg==",
   "success": true,
-  "projectFilePath": "C:\\Programming\\C#\\FredriksWPF\\MyWPF\\MyWPF.csproj",
+  "projectFilePath": "C:\\Programming\\C#\\WPF_fstetler\\MyWPF\\MyWPF.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
