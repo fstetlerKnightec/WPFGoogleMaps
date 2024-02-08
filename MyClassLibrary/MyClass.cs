@@ -2,7 +2,7 @@
     public class MyClass {
 
         public static string MyHelloMethod() {
-            return "Hello world!!!!";
+            return "Hello world!!!! Hi team";
         }
 
     }
