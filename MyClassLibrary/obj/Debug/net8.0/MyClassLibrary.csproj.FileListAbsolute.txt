@@ -34,3 +34,5 @@ C:\Programming\C#\WPFGoogleMaps\MyClassLibrary\obj\Debug\net8.0\MyClassLibrary.c
 C:\Programming\C#\WPFGoogleMaps\MyClassLibrary\obj\Debug\net8.0\MyClassLibrary.dll
 C:\Programming\C#\WPFGoogleMaps\MyClassLibrary\obj\Debug\net8.0\refint\MyClassLibrary.dll
 C:\Programming\C#\WPFGoogleMaps\MyClassLibrary\obj\Debug\net8.0\MyClassLibrary.pdb
+C:\Programming\C#\WPFGoogleMaps\MyClassLibrary\bin\Debug\net8.0\MyClassLibrary.deps.json
+C:\Programming\C#\WPFGoogleMaps\MyClassLibrary\obj\Debug\net8.0\ref\MyClassLibrary.dll
