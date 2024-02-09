@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MyWPF
-build_property.ProjectDir = C:\Programming\C#\WPF_fstetler\MyWPF\
+build_property.ProjectDir = C:\Programming\C#\WPFGoogleMaps\MyWPF\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

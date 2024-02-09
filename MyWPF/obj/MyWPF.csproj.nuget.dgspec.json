@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Programming\\C#\\WPF_fstetler\\MyWPF\\MyWPF.csproj": {}
+    "C:\\Programming\\C#\\WPFGoogleMaps\\MyWPF\\MyWPF.csproj": {}
   },
   "projects": {
-    "C:\\Programming\\C#\\WPF_fstetler\\MyClassLibrary\\MyClassLibrary.csproj": {
+    "C:\\Programming\\C#\\WPFGoogleMaps\\MyClassLibrary\\MyClassLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Programming\\C#\\WPF_fstetler\\MyClassLibrary\\MyClassLibrary.csproj",
+        "projectUniqueName": "C:\\Programming\\C#\\WPFGoogleMaps\\MyClassLibrary\\MyClassLibrary.csproj",
         "projectName": "MyClassLibrary",
-        "projectPath": "C:\\Programming\\C#\\WPF_fstetler\\MyClassLibrary\\MyClassLibrary.csproj",
+        "projectPath": "C:\\Programming\\C#\\WPFGoogleMaps\\MyClassLibrary\\MyClassLibrary.csproj",
         "packagesPath": "C:\\Users\\frste\\.nuget\\packages\\",
-        "outputPath": "C:\\Programming\\C#\\WPF_fstetler\\MyClassLibrary\\obj\\",
+        "outputPath": "C:\\Programming\\C#\\WPFGoogleMaps\\MyClassLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\frste\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -59,14 +59,14 @@
         }
       }
     },
-    "C:\\Programming\\C#\\WPF_fstetler\\MyWPF\\MyWPF.csproj": {
+    "C:\\Programming\\C#\\WPFGoogleMaps\\MyWPF\\MyWPF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Programming\\C#\\WPF_fstetler\\MyWPF\\MyWPF.csproj",
+        "projectUniqueName": "C:\\Programming\\C#\\WPFGoogleMaps\\MyWPF\\MyWPF.csproj",
         "projectName": "MyWPF",
-        "projectPath": "C:\\Programming\\C#\\WPF_fstetler\\MyWPF\\MyWPF.csproj",
+        "projectPath": "C:\\Programming\\C#\\WPFGoogleMaps\\MyWPF\\MyWPF.csproj",
         "packagesPath": "C:\\Users\\frste\\.nuget\\packages\\",
-        "outputPath": "C:\\Programming\\C#\\WPF_fstetler\\MyWPF\\obj\\",
+        "outputPath": "C:\\Programming\\C#\\WPFGoogleMaps\\MyWPF\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\frste\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -83,8 +83,8 @@
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-              "C:\\Programming\\C#\\WPF_fstetler\\MyClassLibrary\\MyClassLibrary.csproj": {
-                "projectPath": "C:\\Programming\\C#\\WPF_fstetler\\MyClassLibrary\\MyClassLibrary.csproj"
+              "C:\\Programming\\C#\\WPFGoogleMaps\\MyClassLibrary\\MyClassLibrary.csproj": {
+                "projectPath": "C:\\Programming\\C#\\WPFGoogleMaps\\MyClassLibrary\\MyClassLibrary.csproj"
               }
             }
           }

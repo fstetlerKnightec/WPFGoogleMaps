@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SSz1YgpBvjzzVPh01wdKHlaC0PKfrZMYF5J/YTDVl7vLUnCR2W5lM2id3o9RQ1FbkMp4wFX1ahvNAHMU9ocxMA==",
+  "dgSpecHash": "Rzhu0UmejwqDld8IrmWduJ2PEag8DCglT4tZbm0TvEKCPy9GTwg3DbvYlEWOqysezA68M0+kM+afAnLWnOcaXA==",
   "success": true,
-  "projectFilePath": "C:\\Programming\\C#\\WPF_fstetler\\MyClassLibrary\\MyClassLibrary.csproj",
+  "projectFilePath": "C:\\Programming\\C#\\WPFGoogleMaps\\MyClassLibrary\\MyClassLibrary.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -10,30 +10,7 @@
     Height="250"
     mc:Ignorable="d">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <TextBox
-            Name="txtInput"
-            Width="250"
-            Height="40"
-            VerticalContentAlignment="Center"
-            FontSize="16"
-            Text="{Binding BoundText, UpdateSourceTrigger=PropertyChanged}" />
-        <Button
-            Name="bntSet"
-            Grid.Row="1"
-            Width="100"
-            Height="40"
-            Content="Set" />
-        <TextBlock
-            Name="tbResult"
-            Grid.Row="2"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            FontSize="16"
-            Text="{Binding BoundText}" />
+
+        
     </Grid>
 </Window>
