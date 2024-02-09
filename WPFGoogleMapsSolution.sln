@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyClassLibrary", "MyClassLibrary\MyClassLibrary.csproj", "{1B6AEBA2-FD14-441F-9DC0-DA14AAA21830}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyClassLibrary", "MyClassLibrary\MyClassLibrary.csproj", "{1B6AEBA2-FD14-441F-9DC0-DA14AAA21830}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyWPF", "MyWPF\MyWPF.csproj", "{49B03F9C-6999-42FA-9D9F-FF2A3E183799}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyWPF", "MyWPF\MyWPF.csproj", "{49B03F9C-6999-42FA-9D9F-FF2A3E183799}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
