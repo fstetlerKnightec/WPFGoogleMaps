@@ -1,4 +1,7 @@
+C:\Programming\C#\WPFGoogleMaps\MyClassLibrary\bin\Debug\net8.0\MyClassLibrary.exe
 C:\Programming\C#\WPFGoogleMaps\MyClassLibrary\bin\Debug\net8.0\MyClassLibrary.deps.json
+C:\Programming\C#\WPFGoogleMaps\MyClassLibrary\bin\Debug\net8.0\MyClassLibrary.runtimeconfig.json
+C:\Programming\C#\WPFGoogleMaps\MyClassLibrary\bin\Debug\net8.0\MyClassLibrary.dll
 C:\Programming\C#\WPFGoogleMaps\MyClassLibrary\bin\Debug\net8.0\MyClassLibrary.pdb
 C:\Programming\C#\WPFGoogleMaps\MyClassLibrary\obj\Debug\net8.0\MyClassLibrary.GeneratedMSBuildEditorConfig.editorconfig
 C:\Programming\C#\WPFGoogleMaps\MyClassLibrary\obj\Debug\net8.0\MyClassLibrary.AssemblyInfoInputs.cache
@@ -8,6 +11,5 @@ C:\Programming\C#\WPFGoogleMaps\MyClassLibrary\obj\Debug\net8.0\MyClassLibrary.s
 C:\Programming\C#\WPFGoogleMaps\MyClassLibrary\obj\Debug\net8.0\MyClassLibrary.dll
 C:\Programming\C#\WPFGoogleMaps\MyClassLibrary\obj\Debug\net8.0\refint\MyClassLibrary.dll
 C:\Programming\C#\WPFGoogleMaps\MyClassLibrary\obj\Debug\net8.0\MyClassLibrary.pdb
+C:\Programming\C#\WPFGoogleMaps\MyClassLibrary\obj\Debug\net8.0\MyClassLibrary.genruntimeconfig.cache
 C:\Programming\C#\WPFGoogleMaps\MyClassLibrary\obj\Debug\net8.0\ref\MyClassLibrary.dll
-C:\Programming\C#\WPFGoogleMaps\MyClassLibrary\obj\Debug\net8.0\MyClassLibrary.csproj.AssemblyReference.cache
-C:\Programming\C#\WPFGoogleMaps\MyClassLibrary\obj\Debug\net8.0\MyClassLibrary.csproj.CopyComplete

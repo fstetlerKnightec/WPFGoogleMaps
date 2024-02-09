@@ -1,3 +1,6 @@
+C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\MyClassLibrary.deps.json
+C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\MyClassLibrary.runtimeconfig.json
+C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\MyClassLibrary.exe
 C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\MyWPF.exe
 C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\MyWPF.deps.json
 C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\MyWPF.runtimeconfig.json
