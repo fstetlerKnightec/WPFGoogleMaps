@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.Maps.MapControl.WPF;
+using System.ComponentModel;
 using System.Windows;
 
 namespace MyWPF {
@@ -11,5 +12,10 @@ namespace MyWPF {
             InitializeComponent();
         }
 
+        private void GoToLocationButton_Click(object sender, RoutedEventArgs e) {
+            double latitude = Convert.ToDouble(LatituteBox.Text);
+            double longitude = Convert.ToDouble(LongitureBox.Text);
+            MapName.Center = new Location(latitude, longitude);
+        }
     }
 }

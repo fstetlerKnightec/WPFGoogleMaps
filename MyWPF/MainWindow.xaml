@@ -31,10 +31,11 @@
         <StackPanel Grid.Row="1" />
 
         <m:Map
+            x:Name="MapName"
             Grid.Row="1"
             Grid.RowSpan="4"
             Grid.Column="1"
-            Center="59.85882, 17.63889"
+            Center="5, 5"
             CredentialsProvider="DPkT2FfRTueyLqqZj3on~Q0nTGD7hmIXtB4ZPnGMdog~AllB5NgntcvtYNbdx0nHKeWTgDwwQjtoCYsKEdNJbULnLTHERmdJ31tK54P5NSKK"
             Mode="Road"
             ZoomLevel="16" />
@@ -65,6 +66,7 @@
             Grid.Column="0"
             Width="120"
             Height="40"
+            Click="GoToLocationButton_Click"
             Content="Go to location"
             FontSize="15" />
 
