@@ -7,10 +7,4 @@
     <OutputType>Exe</OutputType>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Reference Include="MyClassLibrary">
-      <HintPath>bin\Debug\net8.0\MyClassLibrary.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>

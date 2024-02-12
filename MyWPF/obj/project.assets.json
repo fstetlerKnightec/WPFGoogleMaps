@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net8.0-windows7.0": {
+      "Microsoft.Maps.MapControl.WPF/1.0.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net40-Client/Microsoft.Maps.MapControl.WPF.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net40-Client/Microsoft.Maps.MapControl.WPF.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MyClassLibrary/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
@@ -15,6 +28,19 @@
     }
   },
   "libraries": {
+    "Microsoft.Maps.MapControl.WPF/1.0.0.3": {
+      "sha512": "P5Xys9PH/NIZY8qPASd03VOrZ/eXyS1hSoruR7oM+Otn98DkvUD1LwO8m9Aro4/5jCU1BgRmOTJrIQm5y9UHnQ==",
+      "type": "package",
+      "path": "microsoft.maps.mapcontrol.wpf/1.0.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40-Client/Microsoft.Maps.MapControl.WPF.dll",
+        "lib/net40-Client/Microsoft.Maps.MapControl.WPF.xml",
+        "microsoft.maps.mapcontrol.wpf.1.0.0.3.nupkg.sha512",
+        "microsoft.maps.mapcontrol.wpf.nuspec"
+      ]
+    },
     "MyClassLibrary/1.0.0": {
       "type": "project",
       "path": "../MyClassLibrary/MyClassLibrary.csproj",
@@ -23,6 +49,7 @@
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
+      "Microsoft.Maps.MapControl.WPF >= 1.0.0.3",
       "MyClassLibrary >= 1.0.0"
     ]
   },
@@ -68,6 +95,12 @@
     "frameworks": {
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
+        "dependencies": {
+          "Microsoft.Maps.MapControl.WPF": {
+            "target": "Package",
+            "version": "[1.0.0.3, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -90,5 +123,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Maps.MapControl.WPF 1.0.0.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Maps.MapControl.WPF",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    }
+  ]
 }
