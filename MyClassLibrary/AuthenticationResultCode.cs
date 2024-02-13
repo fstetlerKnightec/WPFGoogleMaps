@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MyClassLibrary {
-    internal class AnotherClass {
+    public class AuthenticationResultCode {
 
-
+        public string authenticationResultCode = "";
     }
 }

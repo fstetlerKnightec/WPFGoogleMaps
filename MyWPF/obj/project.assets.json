@@ -64,6 +64,19 @@
           "Microsoft.WindowsDesktop.App.WPF"
         ]
       },
+      "Newtonsoft.Json/13.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Xceed.Wpf.Themes/4.5.23158.1451": {
         "type": "package",
         "compile": {
@@ -113,6 +126,9 @@
       "MyClassLibrary/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.3"
+        },
         "compile": {
           "bin/placeholder/MyClassLibrary.dll": {}
         },
@@ -226,6 +242,36 @@
         "tools/Install.ps1"
       ]
     },
+    "Newtonsoft.Json/13.0.3": {
+      "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
+      "type": "package",
+      "path": "newtonsoft.json/13.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "README.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/net6.0/Newtonsoft.Json.dll",
+        "lib/net6.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "newtonsoft.json.13.0.3.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
     "Xceed.Wpf.Themes/4.5.23158.1451": {
       "sha512": "xfh6a8vNwzwiLsinGS9bz96u4qVqs2lD9ZzGeq38oEiQKqXFb9f1WbrbRzI1lhEW/E7Iu6n75TEkkfv9GdgwmQ==",
       "type": "package",
@@ -294,6 +340,7 @@
       "MaterialDesignThemes >= 4.9.0",
       "Microsoft.Maps.MapControl.WPF >= 1.0.0.3",
       "MyClassLibrary >= 1.0.0",
+      "Newtonsoft.Json >= 13.0.3",
       "Xceed.Wpf.Themes.MaterialDesign >= 4.5.23158.1451"
     ]
   },
@@ -347,6 +394,10 @@
           "Microsoft.Maps.MapControl.WPF": {
             "target": "Package",
             "version": "[1.0.0.3, )"
+          },
+          "Newtonsoft.Json": {
+            "target": "Package",
+            "version": "[13.0.3, )"
           },
           "Xceed.Wpf.Themes.MaterialDesign": {
             "target": "Package",

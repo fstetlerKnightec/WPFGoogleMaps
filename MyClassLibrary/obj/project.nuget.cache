@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Rzhu0UmejwqDld8IrmWduJ2PEag8DCglT4tZbm0TvEKCPy9GTwg3DbvYlEWOqysezA68M0+kM+afAnLWnOcaXA==",
+  "dgSpecHash": "8JLG9srHFE5bRvF+iVFcQdtJ/M3Q9J615Bhy0N6ck8benGkxHKKM+h+Gygpz7LL3GjGHHOxKk/OaA3+4q03b8A==",
   "success": true,
   "projectFilePath": "C:\\Programming\\C#\\WPFGoogleMaps\\MyClassLibrary\\MyClassLibrary.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\frste\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -34,3 +34,4 @@ C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\Xceed.Wpf.Themes.
 C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\MaterialDesignColors.dll
 C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\MaterialDesignThemes.Wpf.dll
 C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\Microsoft.Xaml.Behaviors.dll
+C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
