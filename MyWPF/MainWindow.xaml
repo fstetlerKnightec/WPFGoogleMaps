@@ -35,7 +35,7 @@
             Grid.Row="1"
             Grid.RowSpan="4"
             Grid.Column="1"
-            Center="5, 5"
+            Center="47.21667, 10.81667"
             CredentialsProvider="DPkT2FfRTueyLqqZj3on~Q0nTGD7hmIXtB4ZPnGMdog~AllB5NgntcvtYNbdx0nHKeWTgDwwQjtoCYsKEdNJbULnLTHERmdJ31tK54P5NSKK"
             Mode="Road"
             ZoomLevel="16" />
