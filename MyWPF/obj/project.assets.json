@@ -2,6 +2,39 @@
   "version": 3,
   "targets": {
     "net8.0-windows7.0": {
+      "MaterialDesignColors/2.1.4": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/MaterialDesignColors.dll": {
+            "related": ".pdb"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/MaterialDesignColors.dll": {
+            "related": ".pdb"
+          }
+        }
+      },
+      "MaterialDesignThemes/4.9.0": {
+        "type": "package",
+        "dependencies": {
+          "MaterialDesignColors": "2.1.4",
+          "Microsoft.Xaml.Behaviors.Wpf": "1.1.39"
+        },
+        "compile": {
+          "lib/net7.0/MaterialDesignThemes.Wpf.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/MaterialDesignThemes.Wpf.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "build": {
+          "build/MaterialDesignThemes.targets": {}
+        }
+      },
       "Microsoft.Maps.MapControl.WPF/1.0.0.3": {
         "type": "package",
         "compile": {
@@ -11,6 +44,68 @@
         },
         "runtime": {
           "lib/net40-Client/Microsoft.Maps.MapControl.WPF.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Microsoft.Xaml.Behaviors.Wpf/1.1.39": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "Xceed.Wpf.Themes/4.5.23158.1451": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Xceed.Wpf.Themes.NET5.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Xceed.Wpf.Themes.NET5.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Xceed.Wpf.Themes.MaterialDesign/4.5.23158.1451": {
+        "type": "package",
+        "dependencies": {
+          "Xceed.Wpf.Themes": "[4.5.23158.1451]",
+          "Xceed.Wpf.Themes.MaterialDesignColors": "[4.5.23158.1451]"
+        },
+        "compile": {
+          "lib/net5.0/Xceed.Wpf.Themes.MaterialDesign.NET5.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Xceed.Wpf.Themes.MaterialDesign.NET5.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Xceed.Wpf.Themes.MaterialDesignColors/4.5.23158.1451": {
+        "type": "package",
+        "dependencies": {
+          "Xceed.Wpf.Themes": "[4.5.23158.1451]"
+        },
+        "compile": {
+          "lib/net5.0/Xceed.Wpf.Themes.MaterialDesignColors.NET5.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Xceed.Wpf.Themes.MaterialDesignColors.NET5.dll": {
             "related": ".xml"
           }
         }
@@ -28,6 +123,71 @@
     }
   },
   "libraries": {
+    "MaterialDesignColors/2.1.4": {
+      "sha512": "C4Oy+qkjMoMPoZKyqYdCnIYtK8c0OSIHmNP73Vgc69NjiUG093xTkE7W/Ks54cTDS7fmWOtUHfwISTVTtb/YKg==",
+      "type": "package",
+      "path": "materialdesigncolors/2.1.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "images/MaterialDesignColors.Icon.png",
+        "lib/net462/MaterialDesignColors.dll",
+        "lib/net462/MaterialDesignColors.pdb",
+        "lib/net6.0/MaterialDesignColors.dll",
+        "lib/net6.0/MaterialDesignColors.pdb",
+        "lib/net7.0/MaterialDesignColors.dll",
+        "lib/net7.0/MaterialDesignColors.pdb",
+        "lib/netcoreapp3.1/MaterialDesignColors.dll",
+        "lib/netcoreapp3.1/MaterialDesignColors.pdb",
+        "materialdesigncolors.2.1.4.nupkg.sha512",
+        "materialdesigncolors.nuspec"
+      ]
+    },
+    "MaterialDesignThemes/4.9.0": {
+      "sha512": "Bp9Auw70j+9V7WsUMT4pc8ulVzfL0Eav/tyGgICDirxxhKJwhqtC/6PRkTUm+R1t9611xiDuk5pSUNdDV6vfOQ==",
+      "type": "package",
+      "path": "materialdesignthemes/4.9.0",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/MaterialDesignThemes.targets",
+        "build/Resources/Roboto/Roboto-Black.ttf",
+        "build/Resources/Roboto/Roboto-BlackItalic.ttf",
+        "build/Resources/Roboto/Roboto-Bold.ttf",
+        "build/Resources/Roboto/Roboto-BoldItalic.ttf",
+        "build/Resources/Roboto/Roboto-Italic.ttf",
+        "build/Resources/Roboto/Roboto-Light.ttf",
+        "build/Resources/Roboto/Roboto-LightItalic.ttf",
+        "build/Resources/Roboto/Roboto-Medium.ttf",
+        "build/Resources/Roboto/Roboto-MediumItalic.ttf",
+        "build/Resources/Roboto/Roboto-Regular.ttf",
+        "build/Resources/Roboto/Roboto-Thin.ttf",
+        "build/Resources/Roboto/Roboto-ThinItalic.ttf",
+        "build/Resources/Roboto/RobotoCondensed-Bold.ttf",
+        "build/Resources/Roboto/RobotoCondensed-BoldItalic.ttf",
+        "build/Resources/Roboto/RobotoCondensed-Italic.ttf",
+        "build/Resources/Roboto/RobotoCondensed-Light.ttf",
+        "build/Resources/Roboto/RobotoCondensed-LightItalic.ttf",
+        "build/Resources/Roboto/RobotoCondensed-Regular.ttf",
+        "images/MaterialDesignThemes.Icon.png",
+        "lib/net462/MaterialDesignThemes.Wpf.dll",
+        "lib/net462/MaterialDesignThemes.Wpf.pdb",
+        "lib/net462/MaterialDesignThemes.Wpf.xml",
+        "lib/net6.0/MaterialDesignThemes.Wpf.dll",
+        "lib/net6.0/MaterialDesignThemes.Wpf.pdb",
+        "lib/net6.0/MaterialDesignThemes.Wpf.xml",
+        "lib/net7.0/MaterialDesignThemes.Wpf.dll",
+        "lib/net7.0/MaterialDesignThemes.Wpf.pdb",
+        "lib/net7.0/MaterialDesignThemes.Wpf.xml",
+        "lib/netcoreapp3.1/MaterialDesignThemes.Wpf.dll",
+        "lib/netcoreapp3.1/MaterialDesignThemes.Wpf.pdb",
+        "lib/netcoreapp3.1/MaterialDesignThemes.Wpf.xml",
+        "materialdesignthemes.4.9.0.nupkg.sha512",
+        "materialdesignthemes.nuspec",
+        "tools/VisualStudioToolsManifest.xml"
+      ]
+    },
     "Microsoft.Maps.MapControl.WPF/1.0.0.3": {
       "sha512": "P5Xys9PH/NIZY8qPASd03VOrZ/eXyS1hSoruR7oM+Otn98DkvUD1LwO8m9Aro4/5jCU1BgRmOTJrIQm5y9UHnQ==",
       "type": "package",
@@ -41,6 +201,88 @@
         "microsoft.maps.mapcontrol.wpf.nuspec"
       ]
     },
+    "Microsoft.Xaml.Behaviors.Wpf/1.1.39": {
+      "sha512": "8PZKqw9QOcu42xk8puY4P1+EXHL9YGOR9b7qhaYx5cILHul456H073tj99vyPcCt0W0781T9RwHqkx507ZyUpQ==",
+      "type": "package",
+      "path": "microsoft.xaml.behaviors.wpf/1.1.39",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Design/Microsoft.Xaml.Behaviors.Design.dll",
+        "lib/net45/Microsoft.Xaml.Behaviors.dll",
+        "lib/net45/Microsoft.Xaml.Behaviors.pdb",
+        "lib/net45/Microsoft.Xaml.Behaviors.xml",
+        "lib/net5.0-windows7.0/Design/Microsoft.Xaml.Behaviors.DesignTools.dll",
+        "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.dll",
+        "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.pdb",
+        "lib/net5.0-windows7.0/Microsoft.Xaml.Behaviors.xml",
+        "lib/netcoreapp3.1/Design/Microsoft.Xaml.Behaviors.DesignTools.dll",
+        "lib/netcoreapp3.1/Microsoft.Xaml.Behaviors.dll",
+        "lib/netcoreapp3.1/Microsoft.Xaml.Behaviors.pdb",
+        "lib/netcoreapp3.1/Microsoft.Xaml.Behaviors.xml",
+        "microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
+        "microsoft.xaml.behaviors.wpf.nuspec",
+        "tools/Install.ps1"
+      ]
+    },
+    "Xceed.Wpf.Themes/4.5.23158.1451": {
+      "sha512": "xfh6a8vNwzwiLsinGS9bz96u4qVqs2lD9ZzGeq38oEiQKqXFb9f1WbrbRzI1lhEW/E7Iu6n75TEkkfv9GdgwmQ==",
+      "type": "package",
+      "path": "xceed.wpf.themes/4.5.23158.1451",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License Agreement.txt",
+        "images/Toolkit.png",
+        "lib/net40/Xceed.Wpf.Themes.dll",
+        "lib/net40/Xceed.Wpf.Themes.xml",
+        "lib/net5.0/Xceed.Wpf.Themes.NET5.dll",
+        "lib/net5.0/Xceed.Wpf.Themes.NET5.xml",
+        "lib/netcoreapp3.0/Xceed.Wpf.Themes.NETCore.dll",
+        "lib/netcoreapp3.0/Xceed.Wpf.Themes.NETCore.xml",
+        "xceed.wpf.themes.4.5.23158.1451.nupkg.sha512",
+        "xceed.wpf.themes.nuspec"
+      ]
+    },
+    "Xceed.Wpf.Themes.MaterialDesign/4.5.23158.1451": {
+      "sha512": "fi7Yk0PXCw/5xSiqc6oNMfOB3ym/Ah3LCV0Lfa8Vrlts0YmBuKpWewQeNpeWYe+4xfnAmI//fODXTpAXKvZgkw==",
+      "type": "package",
+      "path": "xceed.wpf.themes.materialdesign/4.5.23158.1451",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License Agreement.txt",
+        "images/Toolkit.png",
+        "lib/net40/Xceed.Wpf.Themes.MaterialDesign.dll",
+        "lib/net40/Xceed.Wpf.Themes.MaterialDesign.xml",
+        "lib/net5.0/Xceed.Wpf.Themes.MaterialDesign.NET5.dll",
+        "lib/net5.0/Xceed.Wpf.Themes.MaterialDesign.NET5.xml",
+        "lib/netcoreapp3.0/Xceed.Wpf.Themes.MaterialDesign.NETCore.dll",
+        "lib/netcoreapp3.0/Xceed.Wpf.Themes.MaterialDesign.NETCore.xml",
+        "xceed.wpf.themes.materialdesign.4.5.23158.1451.nupkg.sha512",
+        "xceed.wpf.themes.materialdesign.nuspec"
+      ]
+    },
+    "Xceed.Wpf.Themes.MaterialDesignColors/4.5.23158.1451": {
+      "sha512": "Y0xM9JBLGNalLMDfi7aFVy7COkuRyLpHTpChWjU579nhcrKeDgarPuFTmXts5OVx8blziNgtxV3pq4Sqr82YYg==",
+      "type": "package",
+      "path": "xceed.wpf.themes.materialdesigncolors/4.5.23158.1451",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License Agreement.txt",
+        "images/Toolkit.png",
+        "lib/net40/Xceed.Wpf.Themes.MaterialDesignColors.dll",
+        "lib/net40/Xceed.Wpf.Themes.MaterialDesignColors.xml",
+        "lib/net5.0/Xceed.Wpf.Themes.MaterialDesignColors.NET5.dll",
+        "lib/net5.0/Xceed.Wpf.Themes.MaterialDesignColors.NET5.xml",
+        "lib/netcoreapp3.0/Xceed.Wpf.Themes.MaterialDesignColors.NETCore.dll",
+        "lib/netcoreapp3.0/Xceed.Wpf.Themes.MaterialDesignColors.NETCore.xml",
+        "xceed.wpf.themes.materialdesigncolors.4.5.23158.1451.nupkg.sha512",
+        "xceed.wpf.themes.materialdesigncolors.nuspec"
+      ]
+    },
     "MyClassLibrary/1.0.0": {
       "type": "project",
       "path": "../MyClassLibrary/MyClassLibrary.csproj",
@@ -49,8 +291,10 @@
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
+      "MaterialDesignThemes >= 4.9.0",
       "Microsoft.Maps.MapControl.WPF >= 1.0.0.3",
-      "MyClassLibrary >= 1.0.0"
+      "MyClassLibrary >= 1.0.0",
+      "Xceed.Wpf.Themes.MaterialDesign >= 4.5.23158.1451"
     ]
   },
   "packageFolders": {
@@ -96,9 +340,17 @@
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
         "dependencies": {
+          "MaterialDesignThemes": {
+            "target": "Package",
+            "version": "[4.9.0, )"
+          },
           "Microsoft.Maps.MapControl.WPF": {
             "target": "Package",
             "version": "[1.0.0.3, )"
+          },
+          "Xceed.Wpf.Themes.MaterialDesign": {
+            "target": "Package",
+            "version": "[4.5.23158.1451, )"
           }
         },
         "imports": [

@@ -99,9 +99,17 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "MaterialDesignThemes": {
+              "target": "Package",
+              "version": "[4.9.0, )"
+            },
             "Microsoft.Maps.MapControl.WPF": {
               "target": "Package",
               "version": "[1.0.0.3, )"
+            },
+            "Xceed.Wpf.Themes.MaterialDesign": {
+              "target": "Package",
+              "version": "[4.5.23158.1451, )"
             }
           },
           "imports": [

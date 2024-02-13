@@ -5,6 +5,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:MyWPF"
     xmlns:m="clr-namespace:Microsoft.Maps.MapControl.WPF;assembly=Microsoft.Maps.MapControl.WPF"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="MainWindow"
     Width="1000"
@@ -68,7 +69,7 @@
             Height="40"
             Click="GoToLocationButton_Click"
             Content="Go to location"
-            FontSize="15" />
+            FontSize="13" />
 
     </Grid>
 </Window>

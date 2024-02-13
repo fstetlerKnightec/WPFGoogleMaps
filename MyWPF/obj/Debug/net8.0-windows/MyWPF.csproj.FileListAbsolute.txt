@@ -27,3 +27,10 @@ C:\Programming\C#\WPFGoogleMaps\MyWPF\obj\Debug\net8.0-windows\MyWPF.pdb
 C:\Programming\C#\WPFGoogleMaps\MyWPF\obj\Debug\net8.0-windows\MyWPF.genruntimeconfig.cache
 C:\Programming\C#\WPFGoogleMaps\MyWPF\obj\Debug\net8.0-windows\ref\MyWPF.dll
 C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\Microsoft.Maps.MapControl.WPF.dll
+C:\Programming\C#\WPFGoogleMaps\MyWPF\obj\Debug\net8.0-windows\App.baml
+C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\Xceed.Wpf.Themes.NET5.dll
+C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\Xceed.Wpf.Themes.MaterialDesign.NET5.dll
+C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\Xceed.Wpf.Themes.MaterialDesignColors.NET5.dll
+C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\MaterialDesignColors.dll
+C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\MaterialDesignThemes.Wpf.dll
+C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\Microsoft.Xaml.Behaviors.dll

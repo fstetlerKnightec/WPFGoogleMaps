@@ -1,10 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "5Nd7i4yKfLAKdGCjqveDaWCYIRg4nIMJZVoKZHFKynvQ0b10BX37sA1aHIMPGpNL34bJkY6esMySbjpr4Fi9qw==",
+  "dgSpecHash": "T28c4PC1p5jkjMk3kIXEYSMc0FV8zYn7uY636Tv2AUaTqOIc6Ig3SDAojeUQqk9cv2REvVFZy4KcaawU6oD9ug==",
   "success": true,
   "projectFilePath": "C:\\Programming\\C#\\WPFGoogleMaps\\MyWPF\\MyWPF.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\frste\\.nuget\\packages\\microsoft.maps.mapcontrol.wpf\\1.0.0.3\\microsoft.maps.mapcontrol.wpf.1.0.0.3.nupkg.sha512"
+    "C:\\Users\\frste\\.nuget\\packages\\materialdesigncolors\\2.1.4\\materialdesigncolors.2.1.4.nupkg.sha512",
+    "C:\\Users\\frste\\.nuget\\packages\\materialdesignthemes\\4.9.0\\materialdesignthemes.4.9.0.nupkg.sha512",
+    "C:\\Users\\frste\\.nuget\\packages\\microsoft.maps.mapcontrol.wpf\\1.0.0.3\\microsoft.maps.mapcontrol.wpf.1.0.0.3.nupkg.sha512",
+    "C:\\Users\\frste\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.39\\microsoft.xaml.behaviors.wpf.1.1.39.nupkg.sha512",
+    "C:\\Users\\frste\\.nuget\\packages\\xceed.wpf.themes\\4.5.23158.1451\\xceed.wpf.themes.4.5.23158.1451.nupkg.sha512",
+    "C:\\Users\\frste\\.nuget\\packages\\xceed.wpf.themes.materialdesign\\4.5.23158.1451\\xceed.wpf.themes.materialdesign.4.5.23158.1451.nupkg.sha512",
+    "C:\\Users\\frste\\.nuget\\packages\\xceed.wpf.themes.materialdesigncolors\\4.5.23158.1451\\xceed.wpf.themes.materialdesigncolors.4.5.23158.1451.nupkg.sha512"
   ],
   "logs": [
     {
