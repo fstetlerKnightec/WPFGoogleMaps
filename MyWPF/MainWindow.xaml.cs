@@ -39,23 +39,24 @@ namespace MyWPF {
         }
 
         public MapPolyline createMapPolyLine(Route routePath) {
-            LocationCollection locs = [];
+            LocationCollection locationCollection = [];
 
             for (int i = 0; i < routePath.Coordinates.Count; i++) {
-                locs.Add(new Location(routePath.Coordinates[i].Latitude, routePath.Coordinates[i].Longitude));
+                locationCollection.Add(new Location(routePath.Coordinates[i].Latitude, routePath.Coordinates[i].Longitude));
             }
 
-            MapPolyline routeLine = new MapPolyline() {
-                Locations = locs,
-                Stroke = new SolidColorBrush(Colors.Blue),
-                StrokeThickness = 5
-            };
+            MapPolyline routeLine = createMapPolyLine(locationCollection);
 
             return routeLine;
         }
 
-
-
+        public MapPolyline createMapPolyLine(LocationCollection locationCollection) {
+            return new MapPolyline() {
+                Locations = locationCollection,
+                Stroke = new SolidColorBrush(Colors.Blue),
+                StrokeThickness = 5
+            };
+        }
 
         public Route getRouteFromUrl(string url, string fromCity, string toCity) {
             var json = new WebClient().DownloadString(url);
