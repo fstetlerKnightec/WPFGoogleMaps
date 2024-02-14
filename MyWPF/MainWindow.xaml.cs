@@ -26,8 +26,15 @@ namespace MyWPF {
 
             MapPolyline routeLine = createMapPolyLine(routePath);
 
-            MapName.Children.Add(routeLine);
+            drawLineOnMap(routeLine);
+            centerMapOnRouteStart(routePath);
+        }
 
+        public void drawLineOnMap(MapPolyline routeLine) {
+            MapName.Children.Add(routeLine);
+        }
+
+        public void centerMapOnRouteStart(Route routePath) {
             MapName.Center = new Location(routePath.Coordinates[0].Latitude, routePath.Coordinates[0].Longitude);
         }
 
