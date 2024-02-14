@@ -1,14 +1,8 @@
 ﻿using Microsoft.Maps.MapControl.WPF;
-using System.ComponentModel;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Text.Json.Nodes;
-using System.Windows;
-using Newtonsoft.Json;
-using System.Text.Json.Serialization;
-using Newtonsoft;
 using MyClassLibrary;
+using Newtonsoft.Json;
+using System.Net;
+using System.Windows;
 using System.Windows.Media;
 
 namespace MyWPF {
@@ -22,18 +16,26 @@ namespace MyWPF {
         }
 
         private void GoToLocationButton_Click(object sender, RoutedEventArgs e) {
-            string latitude = LatituteBox.Text;
-            string longitude = LongitureBox.Text;
+            string fromCity = LatituteBox.Text;
+            string toCity = LongitureBox.Text;
 
-            Route routePath = readJsonFromUrl(String.Format(
-                "https://dev.virtualearth.net/REST/V1/Routes/Driving?wp.0={0}&wp.1={1}&optmz=distance&routeAttributes=routePath&key=DPkT2FfRTueyLqqZj3on~Q0nTGD7hmIXtB4ZPnGMdog~AllB5NgntcvtYNbdx0nHKeWTgDwwQjtoCYsKEdNJbULnLTHERmdJ31tK54P5NSKK", 
-                latitude, 
-                longitude));
+            Route routePath = getRouteFromUrl(String.Format(
+                "https://dev.virtualearth.net/REST/V1/Routes/Driving?wp.0={0}&wp.1={1}&optmz=distance&routeAttributes=routePath&key=DPkT2FfRTueyLqqZj3on~Q0nTGD7hmIXtB4ZPnGMdog~AllB5NgntcvtYNbdx0nHKeWTgDwwQjtoCYsKEdNJbULnLTHERmdJ31tK54P5NSKK",
+                fromCity,
+                toCity), fromCity, toCity);
 
-            LocationCollection locs = new LocationCollection();
+            MapPolyline routeLine = createMapPolyLine(routePath);
+
+            MapName.Children.Add(routeLine);
+
+            MapName.Center = new Location(routePath.Coordinates[0].Latitude, routePath.Coordinates[0].Longitude);
+        }
+
+        public MapPolyline createMapPolyLine(Route routePath) {
+            LocationCollection locs = [];
 
             for (int i = 0; i < routePath.Coordinates.Count; i++) {
-                locs.Add(new Microsoft.Maps.MapControl.WPF.Location(routePath.Coordinates[i].Latitude, routePath.Coordinates[i].Longitude));
+                locs.Add(new Location(routePath.Coordinates[i].Latitude, routePath.Coordinates[i].Longitude));
             }
 
             MapPolyline routeLine = new MapPolyline() {
@@ -42,14 +44,13 @@ namespace MyWPF {
                 StrokeThickness = 5
             };
 
-            MapName.Children.Add(routeLine);
-
-            MapName.Center = new Location(routePath.Coordinates[0].Latitude, routePath.Coordinates[0].Longitude);
-
-
+            return routeLine;
         }
 
-        public Route readJsonFromUrl(string url) {
+
+
+
+        public Route getRouteFromUrl(string url, string fromCity, string toCity) {
             var json = new WebClient().DownloadString(url);
 
             dynamic jsonObj = JsonConvert.DeserializeObject<dynamic>(json);
@@ -64,7 +65,7 @@ namespace MyWPF {
                 coordinates.Add(coordinate);
             }
 
-            Route route = new Route("Taby", "Uppsala", coordinates);
+            Route route = new(fromCity, toCity, coordinates);
 
             return route;
 

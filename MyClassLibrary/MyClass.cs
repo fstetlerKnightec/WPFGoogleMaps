@@ -20,26 +20,29 @@ namespace MyClassLibrary {
 
         public void readJsonFromUrl(string url) {
             var json = new WebClient().DownloadString(url);
-            //var obj = JsonConvert.DeserializeObject(json);
-            //var f = JsonConvert.SerializeObject(obj, Formatting.Indented);
+            var obj = JsonConvert.DeserializeObject(json);
+            var f = JsonConvert.SerializeObject(obj, Formatting.Indented);
+            Console.WriteLine(f);
             //AuthenticationResultCode authent = JsonConvert.DeserializeObject<AuthenticationResultCode>(json);
 
-            dynamic jsonObj = JsonConvert.DeserializeObject<dynamic>(json);
-            var coordinateList = jsonObj["resourceSets"][0]["resources"][0]["routePath"]["line"]["coordinates"];
+            //dynamic jsonObj = JsonConvert.DeserializeObject<dynamic>(json);
+            //var coordinateList = jsonObj["resourceSets"][0]["resources"][0]["routePath"]["line"]["coordinates"];
 
-            List<Coordinate> coordinates = new List<Coordinate>();
+
+
+            //List<Coordinate> coordinates = new List<Coordinate>();
  
-            for (int i = 0; i <  coordinateList.Count; i++) {
-                Coordinate coordinate = new Coordinate(
-                    Convert.ToDouble(coordinateList[i][0].ToString()), 
-                    Convert.ToDouble(coordinateList[i][1].ToString()));
-                coordinates.Add(coordinate);
-            }
+            //for (int i = 0; i <  coordinateList.Count; i++) {
+            //    Coordinate coordinate = new Coordinate(
+            //        Convert.ToDouble(coordinateList[i][0].ToString()), 
+            //        Convert.ToDouble(coordinateList[i][1].ToString()));
+            //    coordinates.Add(coordinate);
+            //}
 
-            Route route = new Route("Taby", "Uppsala", coordinates);
+            //Route route = new Route("Taby", "Uppsala", coordinates);
 
-            Console.WriteLine(route.Coordinates[0].Latitude);
-            Console.WriteLine(route.Coordinates[0].Longitude);
+            //Console.WriteLine(route.Coordinates[0].Latitude);
+            //Console.WriteLine(route.Coordinates[0].Longitude);
 
         }
 
