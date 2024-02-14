@@ -22,11 +22,13 @@ namespace MyWPF {
         }
 
         private void GoToLocationButton_Click(object sender, RoutedEventArgs e) {
-            double latitude = Convert.ToDouble(LatituteBox.Text);
-            double longitude = Convert.ToDouble(LongitureBox.Text);
-            MapName.Center = new Location(latitude, longitude);
+            string latitude = LatituteBox.Text;
+            string longitude = LongitureBox.Text;
 
-            Route routePath = readJsonFromUrl(String.Format("https://dev.virtualearth.net/REST/V1/Routes/Driving?wp.0={0}&wp.1={1}&optmz=distance&routeAttributes=routePath&key=DPkT2FfRTueyLqqZj3on~Q0nTGD7hmIXtB4ZPnGMdog~AllB5NgntcvtYNbdx0nHKeWTgDwwQjtoCYsKEdNJbULnLTHERmdJ31tK54P5NSKK", "taby", "uppsala"));
+            Route routePath = readJsonFromUrl(String.Format(
+                "https://dev.virtualearth.net/REST/V1/Routes/Driving?wp.0={0}&wp.1={1}&optmz=distance&routeAttributes=routePath&key=DPkT2FfRTueyLqqZj3on~Q0nTGD7hmIXtB4ZPnGMdog~AllB5NgntcvtYNbdx0nHKeWTgDwwQjtoCYsKEdNJbULnLTHERmdJ31tK54P5NSKK", 
+                latitude, 
+                longitude));
 
             LocationCollection locs = new LocationCollection();
 
@@ -42,13 +44,13 @@ namespace MyWPF {
 
             MapName.Children.Add(routeLine);
 
+            MapName.Center = new Location(routePath.Coordinates[0].Latitude, routePath.Coordinates[0].Longitude);
+
+
         }
 
         public Route readJsonFromUrl(string url) {
             var json = new WebClient().DownloadString(url);
-            //var obj = JsonConvert.DeserializeObject(json);
-            //var f = JsonConvert.SerializeObject(obj, Formatting.Indented);
-            //AuthenticationResultCode authent = JsonConvert.DeserializeObject<AuthenticationResultCode>(json);
 
             dynamic jsonObj = JsonConvert.DeserializeObject<dynamic>(json);
             var coordinateList = jsonObj["resourceSets"][0]["resources"][0]["routePath"]["line"]["coordinates"];
