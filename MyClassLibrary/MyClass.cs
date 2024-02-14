@@ -27,19 +27,23 @@ namespace MyClassLibrary {
             dynamic jsonObj = JsonConvert.DeserializeObject<dynamic>(json);
             var coordinateList = jsonObj["resourceSets"][0]["resources"][0]["routePath"]["line"]["coordinates"];
 
-            Console.WriteLine(coordinateList.Count);
+            List<Coordinate> coordinates = new List<Coordinate>();
+ 
+            for (int i = 0; i <  coordinateList.Count; i++) {
+                Coordinate coordinate = new Coordinate(
+                    Convert.ToDouble(coordinateList[i][0].ToString()), 
+                    Convert.ToDouble(coordinateList[i][1].ToString()));
+                coordinates.Add(coordinate);
+            }
 
-            //Console.WriteLine(jsonObj);
+            Route route = new Route("Taby", "Uppsala", coordinates);
 
-            //Console.WriteLine(authent.authenticationResultCode.ToString());
-
-
-            //Route route = JsonConvert.DeserializeObject<Route>(json);
-            //Console.WriteLine(route.);
-            //obj.resourceSets[0].resources.[0].routePath
-
+            Console.WriteLine(route.Coordinates[0].Latitude);
+            Console.WriteLine(route.Coordinates[0].Longitude);
 
         }
+
+
 
     }
 }
