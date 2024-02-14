@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using System.Text.Json.Serialization;
 using Newtonsoft;
 using MyClassLibrary;
+using System.Windows.Media;
 
 namespace MyWPF {
     /// <summary>
@@ -25,7 +26,21 @@ namespace MyWPF {
             double longitude = Convert.ToDouble(LongitureBox.Text);
             MapName.Center = new Location(latitude, longitude);
 
-            readJsonFromUrl(String.Format("https://dev.virtualearth.net/REST/V1/Routes/Driving?wp.0={0}&wp.1={1}&optmz=distance&routeAttributes=routePath&key=DPkT2FfRTueyLqqZj3on~Q0nTGD7hmIXtB4ZPnGMdog~AllB5NgntcvtYNbdx0nHKeWTgDwwQjtoCYsKEdNJbULnLTHERmdJ31tK54P5NSKK", "taby", "uppsala"));
+            Route routePath = readJsonFromUrl(String.Format("https://dev.virtualearth.net/REST/V1/Routes/Driving?wp.0={0}&wp.1={1}&optmz=distance&routeAttributes=routePath&key=DPkT2FfRTueyLqqZj3on~Q0nTGD7hmIXtB4ZPnGMdog~AllB5NgntcvtYNbdx0nHKeWTgDwwQjtoCYsKEdNJbULnLTHERmdJ31tK54P5NSKK", "taby", "uppsala"));
+
+            LocationCollection locs = new LocationCollection();
+
+            for (int i = 0; i < routePath.Coordinates.Count; i++) {
+                locs.Add(new Microsoft.Maps.MapControl.WPF.Location(routePath.Coordinates[i].Latitude, routePath.Coordinates[i].Longitude));
+            }
+
+            MapPolyline routeLine = new MapPolyline() {
+                Locations = locs,
+                Stroke = new SolidColorBrush(Colors.Blue),
+                StrokeThickness = 5
+            };
+
+            MapName.Children.Add(routeLine);
 
         }
 
