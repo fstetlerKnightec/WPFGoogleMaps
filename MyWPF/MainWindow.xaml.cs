@@ -32,13 +32,20 @@ namespace MyWPF {
                 fromDestination,
                 toDestination), fromCity, toCity);
 
+            Route routePath2 = getRouteFromUrl(
+                "https://dev.virtualearth.net/REST/V1/Routes/Driving?wp.0=stockholm&wp.1=uppsala&optmz=distance&routeAttributes=routePath&"
+                + "key=DPkT2FfRTueyLqqZj3on~Q0nTGD7hmIXtB4ZPnGMdog~AllB5NgntcvtYNbdx0nHKeWTgDwwQjtoCYsKEdNJbULnLTHERmdJ31tK54P5NSKK", "stockholm", "uppsala");
+
             //Route routePath = getRouteFromUrl(String.Format("http://dev.virtualearth.net/REST/v1/Routes/Driving?wayPoint.1={0}
             //&countryRegion={1}&viaWaypoint.2={2}&optimize=distance&routeAttributes=routePath&countryRegion={3}
             //&key=DPkT2FfRTueyLqqZj3on~Q0nTGD7hmIXtB4ZPnGMdog~AllB5NgntcvtYNbdx0nHKeWTgDwwQjtoCYsKEdNJbULnLTHERmdJ31tK54P5NSKK", fromCity, "Stockholm", toCity, "Austria"), fromCity, toCity);
 
             MapPolyline routeLine = createMapPolyLine(routePath);
+            MapPolyline routeLine2 = createMapPolyLine(routePath2);
+
 
             drawLineOnMap(routeLine);
+            drawLineOnMap(routeLine2);
             centerMapOnRouteStart(routePath);
         }
 
