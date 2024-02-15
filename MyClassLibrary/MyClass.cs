@@ -9,8 +9,11 @@ namespace MyClassLibrary {
 
         public static void Main(string[] args) {
             MyClass myClass = new MyClass();
-            myClass.readJsonFromUrl(String.Format("https://dev.virtualearth.net/REST/V1/Routes/Driving?wp.0={0}&wp.1={1}&optmz=distance&routeAttributes=routePath&key=DPkT2FfRTueyLqqZj3on~Q0nTGD7hmIXtB4ZPnGMdog~AllB5NgntcvtYNbdx0nHKeWTgDwwQjtoCYsKEdNJbULnLTHERmdJ31tK54P5NSKK", "taby", "uppsala"));
-           
+            //myClass.readJsonFromUrl(String.Format("https://dev.virtualearth.net/REST/V1/Routes/Driving?wp.0={0}&wp.1={1}&optmz=distance&routeAttributes=routePath&key=DPkT2FfRTueyLqqZj3on~Q0nTGD7hmIXtB4ZPnGMdog~AllB5NgntcvtYNbdx0nHKeWTgDwwQjtoCYsKEdNJbULnLTHERmdJ31tK54P5NSKK", "taby", "uppsala"));
+
+            string filePath = "C:\\Programming\\C#\\WPFGoogleMaps\\MyWPF\\resources\\Unilever_Spaltenindex_Eiger 8 Jahrestender.xlsx";
+
+
 
 
         }
