@@ -21,7 +21,10 @@
             <RowDefinition Height="70" />
             <RowDefinition Height="70" />
             <RowDefinition Height="70" />
+            <RowDefinition Height="230" />
+            <RowDefinition Height="70" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -35,7 +38,7 @@
         <m:Map
             x:Name="MapName"
             Grid.Row="1"
-            Grid.RowSpan="4"
+            Grid.RowSpan="6"
             Grid.Column="2"
             Center="47.21667, 10.81667"
             CredentialsProvider="DPkT2FfRTueyLqqZj3on~Q0nTGD7hmIXtB4ZPnGMdog~AllB5NgntcvtYNbdx0nHKeWTgDwwQjtoCYsKEdNJbULnLTHERmdJ31tK54P5NSKK"
@@ -83,13 +86,32 @@
             TextAlignment="Left" />
 
         <Button
-            x:Name="GoToLocationButton"
+            x:Name="AddLocationButton"
             Grid.Row="3"
             Grid.Column="0"
             Width="120"
             Height="40"
-            Click="GoToLocationButton_Click"
-            Content="Go to location"
+            Click="AddLocationButton_Click"
+            Content="Add location"
+            FontSize="13" />
+
+        <TextBlock
+            x:Name="RoutesTextBlock"
+            Grid.Row="4"
+            Grid.Column="0"
+            Width="150"
+            Height="200"
+            FontSize="10"
+            TextAlignment="Left" />
+
+        <Button
+            x:Name="PrintRoutesOnMapButton"
+            Grid.Row="5"
+            Grid.Column="0"
+            Width="120"
+            Height="40"
+            Click="PrintRoutesOnMapButton_Click"
+            Content="Print locations"
             FontSize="13" />
 
     </Grid>
