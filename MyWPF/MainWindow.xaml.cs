@@ -88,7 +88,6 @@ namespace MyWPF {
             Route route = new(fromCity, toCity, coordinates);
 
             return route;
-
         }
     }
 }
