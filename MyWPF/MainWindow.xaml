@@ -25,7 +25,8 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="180" />
+            <ColumnDefinition Width="70" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
@@ -35,30 +36,50 @@
             x:Name="MapName"
             Grid.Row="1"
             Grid.RowSpan="4"
-            Grid.Column="1"
+            Grid.Column="2"
             Center="47.21667, 10.81667"
             CredentialsProvider="DPkT2FfRTueyLqqZj3on~Q0nTGD7hmIXtB4ZPnGMdog~AllB5NgntcvtYNbdx0nHKeWTgDwwQjtoCYsKEdNJbULnLTHERmdJ31tK54P5NSKK"
             Mode="Road"
             ZoomLevel="16" />
 
         <TextBox
-            x:Name="LatituteBox"
+            x:Name="FromCityTextBox"
             Grid.Row="1"
             Grid.Column="0"
-            Width="200"
+            Width="150"
             Height="40"
             VerticalAlignment="Center"
-            FontSize="10"
+            FontSize="15"
             TextAlignment="Left" />
 
         <TextBox
-            x:Name="LongitureBox"
-            Grid.Row="2"
-            Grid.Column="0"
-            Width="200"
+            x:Name="FromRegionCountryTextBox"
+            Grid.Row="1"
+            Grid.Column="1"
+            Width="40"
             Height="40"
             VerticalAlignment="Center"
-            FontSize="10"
+            FontSize="15"
+            TextAlignment="Left" />
+
+        <TextBox
+            x:Name="ToCityTextBox"
+            Grid.Row="2"
+            Grid.Column="0"
+            Width="150"
+            Height="40"
+            VerticalAlignment="Center"
+            FontSize="15"
+            TextAlignment="Left" />
+
+        <TextBox
+            x:Name="ToRegionCountryTextBox"
+            Grid.Row="2"
+            Grid.Column="1"
+            Width="40"
+            Height="40"
+            VerticalAlignment="Center"
+            FontSize="15"
             TextAlignment="Left" />
 
         <Button

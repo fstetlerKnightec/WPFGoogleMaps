@@ -16,13 +16,25 @@ namespace MyWPF {
         }
 
         private void GoToLocationButton_Click(object sender, RoutedEventArgs e) {
-            string fromCity = LatituteBox.Text;
-            string toCity = LongitureBox.Text;
+            string fromCity = FromCityTextBox.Text;
+            string fromRegionCountry = FromRegionCountryTextBox.Text;
+            string toCity = ToCityTextBox.Text;
+            string toRegionCountry = ToRegionCountryTextBox.Text;
 
+            string fromDestination = fromCity + ", " + fromRegionCountry;
+            string toDestination = toCity + ", " + toRegionCountry;
+
+
+            // du kan skriva Paris, TX i textfältet för att speca vilket område
             Route routePath = getRouteFromUrl(String.Format(
-                "https://dev.virtualearth.net/REST/V1/Routes/Driving?wp.0={0}&wp.1={1}&optmz=distance&routeAttributes=routePath&key=DPkT2FfRTueyLqqZj3on~Q0nTGD7hmIXtB4ZPnGMdog~AllB5NgntcvtYNbdx0nHKeWTgDwwQjtoCYsKEdNJbULnLTHERmdJ31tK54P5NSKK",
-                fromCity,
-                toCity), fromCity, toCity);
+                "https://dev.virtualearth.net/REST/V1/Routes/Driving?wp.0={0}&wp.1={1}&optmz=distance&routeAttributes=routePath&" 
+                + "key=DPkT2FfRTueyLqqZj3on~Q0nTGD7hmIXtB4ZPnGMdog~AllB5NgntcvtYNbdx0nHKeWTgDwwQjtoCYsKEdNJbULnLTHERmdJ31tK54P5NSKK",
+                fromDestination,
+                toDestination), fromCity, toCity);
+
+            //Route routePath = getRouteFromUrl(String.Format("http://dev.virtualearth.net/REST/v1/Routes/Driving?wayPoint.1={0}
+            //&countryRegion={1}&viaWaypoint.2={2}&optimize=distance&routeAttributes=routePath&countryRegion={3}
+            //&key=DPkT2FfRTueyLqqZj3on~Q0nTGD7hmIXtB4ZPnGMdog~AllB5NgntcvtYNbdx0nHKeWTgDwwQjtoCYsKEdNJbULnLTHERmdJ31tK54P5NSKK", fromCity, "Stockholm", toCity, "Austria"), fromCity, toCity);
 
             MapPolyline routeLine = createMapPolyLine(routePath);
 
