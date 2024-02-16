@@ -25,7 +25,7 @@ namespace MyWPF {
             //string fromRegionCountry = FromRegionCountryTextBox.Text;
             //string toCity = ToCityTextBox.Text;
             //string toRegionCountry = ToRegionCountryTextBox.Text;
-            string filePath = "C:\\Programming\\C#\\WPFGoogleMaps\\MyWPF\\resources\\Unilever_Spaltenindex_Eiger 8 Jahrestender.xlsx";
+            string filePath = "resources\\Unilever_Spaltenindex_Eiger 8 Jahrestender.xlsx";
             WorkSheet sheet = getDataFromExcelFileFromPath(filePath);
 
             IronXL.Range fromCity = sheet["D1968:D1969"];

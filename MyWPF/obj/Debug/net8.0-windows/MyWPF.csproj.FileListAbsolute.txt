@@ -54,3 +54,4 @@ C:\Programming\C#\WPFGoogleMaps\MyWPF\obj\Debug\net8.0-windows\refint\MyWPF.dll
 C:\Programming\C#\WPFGoogleMaps\MyWPF\obj\Debug\net8.0-windows\MyWPF.pdb
 C:\Programming\C#\WPFGoogleMaps\MyWPF\obj\Debug\net8.0-windows\MyWPF.genruntimeconfig.cache
 C:\Programming\C#\WPFGoogleMaps\MyWPF\obj\Debug\net8.0-windows\ref\MyWPF.dll
+C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\resources\Unilever_Spaltenindex_Eiger 8 Jahrestender.xlsx
