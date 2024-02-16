@@ -28,16 +28,19 @@ namespace MyWPF {
             string filePath = "C:\\Programming\\C#\\WPFGoogleMaps\\MyWPF\\resources\\Unilever_Spaltenindex_Eiger 8 Jahrestender.xlsx";
             WorkSheet sheet = getDataFromExcelFileFromPath(filePath);
 
-            var fromCity = sheet["D1955"].Value;
-            var fromRegionCountry = sheet["E1955"].Value;
+            IronXL.Range fromCity = sheet["D1968:D1969"];
+            IronXL.Range fromRegionCountry = sheet["E1968:E1969"];
 
-            var toCity = sheet["D1939"].Value;
-            var toRegionCountry = sheet["E1939"].Value;
+            IronXL.Range toCity = sheet["D1985:D1986"];
+            IronXL.Range toRegionCountry = sheet["E1985:E1986"];
 
-            string fromDestination = fromCity + ", " + fromRegionCountry;
-            string toDestination = toCity + ", " + toRegionCountry;
+            for (int i = 0; i < fromCity.RowCount; i++) {
+                string fromDestination = fromCity.Rows[i].Value + ", " + fromRegionCountry.Rows[i].Value;
+                string toDestination = toCity.Rows[i].Value + ", " + toRegionCountry.Rows[i].Value;
 
-            destinations.Add(fromDestination + " -> " + toDestination);
+                destinations.Add(fromDestination + " -> " + toDestination);
+            }
+
 
             string fullString = "";
             foreach (string destination in destinations) {
