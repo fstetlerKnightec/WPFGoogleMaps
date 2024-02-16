@@ -1,4 +1,5 @@
-﻿using Microsoft.Maps.MapControl.WPF;
+﻿using IronXL;
+using Microsoft.Maps.MapControl.WPF;
 using MyClassLibrary;
 using Newtonsoft.Json;
 using System.Net;
@@ -20,10 +21,18 @@ namespace MyWPF {
         }
 
         protected void AddLocationButton_Click(object sender, RoutedEventArgs e) {
-            string fromCity = FromCityTextBox.Text;
-            string fromRegionCountry = FromRegionCountryTextBox.Text;
-            string toCity = ToCityTextBox.Text;
-            string toRegionCountry = ToRegionCountryTextBox.Text;
+            //string fromCity = FromCityTextBox.Text;
+            //string fromRegionCountry = FromRegionCountryTextBox.Text;
+            //string toCity = ToCityTextBox.Text;
+            //string toRegionCountry = ToRegionCountryTextBox.Text;
+            string filePath = "C:\\Programming\\C#\\WPFGoogleMaps\\MyWPF\\resources\\Unilever_Spaltenindex_Eiger 8 Jahrestender.xlsx";
+            WorkSheet sheet = getDataFromExcelFileFromPath(filePath);
+
+            var fromCity = sheet["D1955"].Value;
+            var fromRegionCountry = sheet["E1955"].Value;
+
+            var toCity = sheet["D1939"].Value;
+            var toRegionCountry = sheet["E1939"].Value;
 
             string fromDestination = fromCity + ", " + fromRegionCountry;
             string toDestination = toCity + ", " + toRegionCountry;
@@ -55,6 +64,14 @@ namespace MyWPF {
                 drawLineOnMap(routeLine);
             }
             centerMapOnRouteStart(routePaths[0]);
+        }
+
+        public WorkSheet getDataFromExcelFileFromPath(string filePath) {
+
+            WorkBook workbook = WorkBook.Load(filePath);
+            WorkSheet sheet = workbook.WorkSheets[7];
+
+            return sheet;
         }
 
         public void drawLineOnMap(MapPolyline routeLine) {

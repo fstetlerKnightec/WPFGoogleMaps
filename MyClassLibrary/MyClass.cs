@@ -3,6 +3,7 @@ using System.Text.Json.Nodes;
 using System.Text.Json.Serialization;
 using Newtonsoft;
 using Newtonsoft.Json;
+using IronXL;
 
 namespace MyClassLibrary {
     public class MyClass {
@@ -12,11 +13,23 @@ namespace MyClassLibrary {
             //myClass.readJsonFromUrl(String.Format("https://dev.virtualearth.net/REST/V1/Routes/Driving?wp.0={0}&wp.1={1}&optmz=distance&routeAttributes=routePath&key=DPkT2FfRTueyLqqZj3on~Q0nTGD7hmIXtB4ZPnGMdog~AllB5NgntcvtYNbdx0nHKeWTgDwwQjtoCYsKEdNJbULnLTHERmdJ31tK54P5NSKK", "taby", "uppsala"));
 
             string filePath = "C:\\Programming\\C#\\WPFGoogleMaps\\MyWPF\\resources\\Unilever_Spaltenindex_Eiger 8 Jahrestender.xlsx";
+            myClass.readExcelFileFromPath(filePath);
+        }
 
+        public void readExcelFileFromPath(string filePath) {
+
+            WorkBook workbook = WorkBook.Load(filePath);
+            WorkSheet sheet = workbook.WorkSheets[7];
+
+            var range = sheet["J1943:J1944"];
+            foreach (var cell in range) {
+                Console.WriteLine(cell.Value);
+            }
 
 
 
         }
+
         public static string MyHelloMethod() {
             return "Hello world!!!! Hi team";
         }
