@@ -46,13 +46,31 @@
             ZoomLevel="16" />
 
         <Button
+            x:Name="LoadExcelButton"
+            Grid.Row="1"
+            Grid.Column="0"
+            Width="120"
+            Height="40"
+            Click="LoadExcelButton_Click"
+            Content="Load Excel File"
+            FontSize="13" />
+
+        <TextBox
+            x:Name="ExcelLoadedTextBox"
+            Grid.Row="2"
+            Grid.Column="0"
+            Width="120"
+            Height="40"
+            FontSize="13" />
+
+        <Button
             x:Name="AddLocationButton"
             Grid.Row="3"
             Grid.Column="0"
             Width="120"
             Height="40"
             Click="AddLocationButton_Click"
-            Content="Add location"
+            Content="Add locations"
             FontSize="13" />
 
         <TextBlock

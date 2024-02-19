@@ -17,41 +17,29 @@ namespace MyWPF {
 
         private readonly List<string> DESTINATIONS = [];
 
+        private WorkSheet SHEET;
+
         public MainWindow() {
             InitializeComponent();
         }
 
-        protected void AddLocationButton_Click(object sender, RoutedEventArgs e) {
+        protected void LoadExcelButton_Click(object sender, RoutedEventArgs e) {
             string filePath = "resources\\Unilever_Spaltenindex_Eiger 8 Jahrestender.xlsx";
-            WorkSheet sheet = GetDataFromExcelFileFromPath(filePath);
+            SHEET = GetDataFromExcelFileFromPath(filePath);
+            ExcelLoadedTextBox.Text = "Loaded";
+        }
 
+        protected void AddLocationButton_Click(object sender, RoutedEventArgs e) {
             //IronXL.Range fromCity = sheet["D1958"]; CAMPONA 1 dosnt work
-            IronXL.Range fromCity = sheet["D1968:D1969"];
-            IronXL.Range fromRegionCountry = sheet["E1968:E1969"];
+            IronXL.Range fromCity = SHEET["D1968:D1969"];
+            IronXL.Range fromRegionCountry = SHEET["E1968:E1969"];
 
-            IronXL.Range toCity = sheet["D1985:D1986"];
-            IronXL.Range toRegionCountry = sheet["E1985:E1986"];
+            IronXL.Range toCity = SHEET["D1985:D1986"];
+            IronXL.Range toRegionCountry = SHEET["E1985:E1986"];
 
             AddDestinationsToList(fromCity, fromRegionCountry, toCity, toRegionCountry);
 
             RoutesTextBlock.Text = GetDestinationStrings().ToString();
-        }
-
-        public StringBuilder GetDestinationStrings() {
-            StringBuilder fullString = new();
-            foreach (string destination in DESTINATIONS) {
-                fullString.Append(destination + "\n");
-            }
-            return fullString;
-        }
-
-        public void AddDestinationsToList(IronXL.Range fromCity, IronXL.Range fromRegionCountry, IronXL.Range toCity, IronXL.Range toRegionCountry) {
-            for (int i = 0; i < fromCity.RowCount; i++) {
-                string fromDestination = fromCity.Rows[i].Value + ", " + fromRegionCountry.Rows[i].Value;
-                string toDestination = toCity.Rows[i].Value + ", " + toRegionCountry.Rows[i].Value;
-
-                DESTINATIONS.Add(fromDestination + " -> " + toDestination);
-            }
         }
 
         protected void PrintRoutesOnMapButton_Click(object sender, RoutedEventArgs e) {
@@ -60,38 +48,52 @@ namespace MyWPF {
             CenterMapOnRouteStart(routePaths[0]);
         }
 
-        public List<Route> GetRoutePaths() {
-            return DESTINATIONS.Select(d => GetRouteFromUrl(String.Format(
-                "https://dev.virtualearth.net/REST/V1/Routes/Driving?wp.0={0}&wp.1={1}&optmz=distance&routeAttributes=routePath&key="
-            + APIKEY, d.Split(" -> ")[0], d.Split(" -> ")[1]))).ToList();
+        private List<Route> GetRoutePaths() {
+            return DESTINATIONS.Select(d => 
+            GetRouteFromUrl(String.Format(
+                "https://dev.virtualearth.net/REST/V1/Routes/Driving?wp.0={0}&wp.1={1}&optmz=distance&routeAttributes=routePath&key=" + APIKEY, 
+                d.Split(" -> ")[0], 
+                d.Split(" -> ")[1])))
+                .ToList();
         }
 
-        public void DrawAllLinesOnMap(List<Route> routePaths) {
-            foreach (Route route in routePaths) {
-                MapPolyline routeLine = CreateMapPolyLine(route);
-                DrawLineOnMap(routeLine);
+        private void AddDestinationsToList(IronXL.Range fromCity, IronXL.Range fromRegionCountry, IronXL.Range toCity, IronXL.Range toRegionCountry) {
+            for (int i = 0; i < fromCity.RowCount; i++) {
+                string fromDestination = fromCity.Rows[i].Value + ", " + fromRegionCountry.Rows[i].Value;
+                string toDestination = toCity.Rows[i].Value + ", " + toRegionCountry.Rows[i].Value;
+                DESTINATIONS.Add(fromDestination + " -> " + toDestination);
             }
         }
 
-        public WorkSheet GetDataFromExcelFileFromPath(string filePath) {
+        private StringBuilder GetDestinationStrings() {
+            StringBuilder fullString = new();
+            DESTINATIONS.ForEach(d => fullString.AppendLine(d));
+            return fullString;
+        }
+
+        private void DrawAllLinesOnMap(List<Route> routePaths) {
+            routePaths.ForEach(rp => DrawLineOnMap(CreateMapPolyLine(rp)));
+        }
+
+        private WorkSheet GetDataFromExcelFileFromPath(string filePath) {
             WorkBook workbook = WorkBook.Load(filePath);
             return workbook.WorkSheets[7];
         }
 
-        public void DrawLineOnMap(MapPolyline routeLine) {
+        private void DrawLineOnMap(MapPolyline routeLine) {
             MapName.Children.Add(routeLine);
         }
 
-        public void CenterMapOnRouteStart(Route routePath) {
+        private void CenterMapOnRouteStart(Route routePath) {
             MapName.Center = new Location(routePath.Coordinates[0].Latitude, routePath.Coordinates[0].Longitude);
         }
 
-        public MapPolyline CreateMapPolyLine(Route routePath) {
+        private MapPolyline CreateMapPolyLine(Route routePath) {
             LocationCollection locationCollection = GetLocationCollection(routePath);
             return CreateMapPolyLine(locationCollection);
         }
 
-        public LocationCollection GetLocationCollection(Route routePath) {
+        private LocationCollection GetLocationCollection(Route routePath) {
             LocationCollection locationCollection = [];
             for (int i = 0; i < routePath.Coordinates.Count; i++) {
                 locationCollection.Add(new Location(routePath.Coordinates[i].Latitude, routePath.Coordinates[i].Longitude));
@@ -99,7 +101,7 @@ namespace MyWPF {
             return locationCollection;
         }
 
-        public MapPolyline CreateMapPolyLine(LocationCollection locationCollection) {
+        private MapPolyline CreateMapPolyLine(LocationCollection locationCollection) {
             return new MapPolyline() {
                 Locations = locationCollection,
                 Stroke = new SolidColorBrush(Colors.Blue),
@@ -107,19 +109,19 @@ namespace MyWPF {
             };
         }
 
-        public Route GetRouteFromUrl(string url) {
+        private Route GetRouteFromUrl(string url) {
             JArray coordinateList = GetCoordinateList(url);
             List<Coordinate> coordinates = GetCoordinates(coordinateList);
             return new(coordinates);
         }
 
-        public JArray GetCoordinateList(string url) {
+        private JArray GetCoordinateList(string url) {
             string json = new WebClient().DownloadString(url);
             dynamic jsonObj = JsonConvert.DeserializeObject<dynamic>(json);
             return jsonObj["resourceSets"][0]["resources"][0]["routePath"]["line"]["coordinates"];
         }
 
-        public List<Coordinate> GetCoordinates(JArray coordinateList) {
+        private List<Coordinate> GetCoordinates(JArray coordinateList) {
             return coordinateList.Select(c => new Coordinate(Convert.ToDouble(c[0].ToString()), Convert.ToDouble(c[1].ToString()))).ToList();
         }
     }
