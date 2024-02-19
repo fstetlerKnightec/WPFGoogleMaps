@@ -101,12 +101,17 @@ namespace MyWPF {
         }
 
         public MapPolyline createMapPolyLine(Route routePath) {
+            LocationCollection locationCollection = getLocationCollection(routePath);
+            MapPolyline routeLine = createMapPolyLine(locationCollection);
+            return routeLine;
+        }
+
+        public LocationCollection getLocationCollection(Route routePath) {
             LocationCollection locationCollection = [];
             for (int i = 0; i < routePath.Coordinates.Count; i++) {
                 locationCollection.Add(new Location(routePath.Coordinates[i].Latitude, routePath.Coordinates[i].Longitude));
             }
-            MapPolyline routeLine = createMapPolyLine(locationCollection);
-            return routeLine;
+            return locationCollection;
         }
 
         public MapPolyline createMapPolyLine(LocationCollection locationCollection) {
@@ -118,15 +123,15 @@ namespace MyWPF {
         }
 
         public Route getRouteFromUrl(string url, string fromCity, string toCity) {
+            JArray coordinateList = getCoordinateList(url);
+            List<Coordinate> coordinates = getCoordinates(coordinateList);
+            return new(fromCity, toCity, coordinates);
+        }
+
+        public JArray getCoordinateList(string url) {
             var json = new WebClient().DownloadString(url);
             dynamic jsonObj = JsonConvert.DeserializeObject<dynamic>(json);
-            JArray coordinateList = jsonObj["resourceSets"][0]["resources"][0]["routePath"]["line"]["coordinates"];
-
-            List<Coordinate> coordinates = getCoordinates(coordinateList);
-            
-            Route route = new(fromCity, toCity, coordinates);
-
-            return route;
+            return jsonObj["resourceSets"][0]["resources"][0]["routePath"]["line"]["coordinates"];
         }
 
         public List<Coordinate> getCoordinates(JArray coordinateList) {
