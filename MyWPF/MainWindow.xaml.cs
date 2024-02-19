@@ -34,19 +34,26 @@ namespace MyWPF {
             IronXL.Range toCity = sheet["D1985:D1986"];
             IronXL.Range toRegionCountry = sheet["E1985:E1986"];
 
+            addDestinationsToList(fromCity, fromRegionCountry, toCity, toRegionCountry);
+
+            RoutesTextBlock.Text = getDestinationStrings();
+        }
+
+        public string getDestinationStrings() {
+            string fullString = "";
+            foreach (string destination in destinations) {
+                fullString += destination + "\n";
+            }
+            return fullString;
+        }
+
+        public void addDestinationsToList(IronXL.Range fromCity, IronXL.Range fromRegionCountry, IronXL.Range toCity, IronXL.Range toRegionCountry) {
             for (int i = 0; i < fromCity.RowCount; i++) {
                 string fromDestination = fromCity.Rows[i].Value + ", " + fromRegionCountry.Rows[i].Value;
                 string toDestination = toCity.Rows[i].Value + ", " + toRegionCountry.Rows[i].Value;
 
                 destinations.Add(fromDestination + " -> " + toDestination);
             }
-
-
-            string fullString = "";
-            foreach (string destination in destinations) {
-                fullString += destination + "\n";
-            }
-            RoutesTextBlock.Text = fullString;
         }
 
         protected void PrintRoutesOnMapButton_Click(object sender, RoutedEventArgs e) {
