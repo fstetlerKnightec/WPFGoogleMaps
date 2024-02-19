@@ -13,10 +13,9 @@ namespace MyWPF {
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
+        private readonly string APIKEY = "DPkT2FfRTueyLqqZj3on~Q0nTGD7hmIXtB4ZPnGMdog~AllB5NgntcvtYNbdx0nHKeWTgDwwQjtoCYsKEdNJbULnLTHERmdJ31tK54P5NSKK";
 
-        string APIKEY = "DPkT2FfRTueyLqqZj3on~Q0nTGD7hmIXtB4ZPnGMdog~AllB5NgntcvtYNbdx0nHKeWTgDwwQjtoCYsKEdNJbULnLTHERmdJ31tK54P5NSKK";
-
-        List<string> DESTINATIONS = new List<string>();
+        private readonly List<string> DESTINATIONS = [];
 
         public MainWindow() {
             InitializeComponent();
@@ -39,7 +38,7 @@ namespace MyWPF {
         }
 
         public StringBuilder GetDestinationStrings() {
-            StringBuilder fullString = new StringBuilder();
+            StringBuilder fullString = new();
             foreach (string destination in DESTINATIONS) {
                 fullString.Append(destination + "\n");
             }
@@ -62,19 +61,9 @@ namespace MyWPF {
         }
 
         public List<Route> GetRoutePaths() {
-            List<Route> routePaths = new List<Route>();
-
-            foreach (string destination in DESTINATIONS) {
-                string fromDestination = destination.Split(" -> ")[0];
-                string toDestination = destination.Split(" -> ")[1];
-                Route routePath = GetRouteFromUrl(String.Format(
-                "https://dev.virtualearth.net/REST/V1/Routes/Driving?wp.0={0}&wp.1={1}&optmz=distance&routeAttributes=routePath&key=" + APIKEY,
-                fromDestination,
-                toDestination), fromDestination, toDestination);
-                routePaths.Add(routePath);
-            }
-
-            return routePaths;
+            return DESTINATIONS.Select(d => GetRouteFromUrl(String.Format(
+                "https://dev.virtualearth.net/REST/V1/Routes/Driving?wp.0={0}&wp.1={1}&optmz=distance&routeAttributes=routePath&key="
+            + APIKEY, d.Split(" -> ")[0], d.Split(" -> ")[1]))).ToList();
         }
 
         public void DrawAllLinesOnMap(List<Route> routePaths) {
@@ -85,11 +74,8 @@ namespace MyWPF {
         }
 
         public WorkSheet GetDataFromExcelFileFromPath(string filePath) {
-
             WorkBook workbook = WorkBook.Load(filePath);
-            WorkSheet sheet = workbook.WorkSheets[7];
-
-            return sheet;
+            return workbook.WorkSheets[7];
         }
 
         public void DrawLineOnMap(MapPolyline routeLine) {
@@ -121,10 +107,10 @@ namespace MyWPF {
             };
         }
 
-        public Route GetRouteFromUrl(string url, string fromCity, string toCity) {
+        public Route GetRouteFromUrl(string url) {
             JArray coordinateList = GetCoordinateList(url);
             List<Coordinate> coordinates = GetCoordinates(coordinateList);
-            return new(fromCity, toCity, coordinates);
+            return new(coordinates);
         }
 
         public JArray GetCoordinateList(string url) {

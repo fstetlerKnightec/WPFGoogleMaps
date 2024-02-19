@@ -8,6 +8,8 @@ using IronXL;
 namespace MyClassLibrary {
     public class MyClass {
 
+        // JUST A TRYING CLASS, DONT USE FOR REAL
+
         public static void Main(string[] args) {
             MyClass myClass = new MyClass();
             //myClass.readJsonFromUrl(String.Format("https://dev.virtualearth.net/REST/V1/Routes/Driving?wp.0={0}&wp.1={1}&optmz=distance&routeAttributes=routePath&key=DPkT2FfRTueyLqqZj3on~Q0nTGD7hmIXtB4ZPnGMdog~AllB5NgntcvtYNbdx0nHKeWTgDwwQjtoCYsKEdNJbULnLTHERmdJ31tK54P5NSKK", "taby", "uppsala"));
