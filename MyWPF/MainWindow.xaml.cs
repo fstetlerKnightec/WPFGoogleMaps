@@ -2,7 +2,9 @@
 using Microsoft.Maps.MapControl.WPF;
 using MyClassLibrary;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Net;
+using System.Text;
 using System.Windows;
 using System.Windows.Media;
 
@@ -21,13 +23,10 @@ namespace MyWPF {
         }
 
         protected void AddLocationButton_Click(object sender, RoutedEventArgs e) {
-            //string fromCity = FromCityTextBox.Text;
-            //string fromRegionCountry = FromRegionCountryTextBox.Text;
-            //string toCity = ToCityTextBox.Text;
-            //string toRegionCountry = ToRegionCountryTextBox.Text;
             string filePath = "resources\\Unilever_Spaltenindex_Eiger 8 Jahrestender.xlsx";
             WorkSheet sheet = getDataFromExcelFileFromPath(filePath);
 
+            //IronXL.Range fromCity = sheet["D1958"]; CAMPONA 1 dosnt work
             IronXL.Range fromCity = sheet["D1968:D1969"];
             IronXL.Range fromRegionCountry = sheet["E1968:E1969"];
 
@@ -36,13 +35,13 @@ namespace MyWPF {
 
             addDestinationsToList(fromCity, fromRegionCountry, toCity, toRegionCountry);
 
-            RoutesTextBlock.Text = getDestinationStrings();
+            RoutesTextBlock.Text = getDestinationStrings().ToString();
         }
 
-        public string getDestinationStrings() {
-            string fullString = "";
+        public StringBuilder getDestinationStrings() {
+            StringBuilder fullString = new StringBuilder();
             foreach (string destination in destinations) {
-                fullString += destination + "\n";
+                fullString.Append(destination + "\n");
             }
             return fullString;
         }
@@ -57,6 +56,12 @@ namespace MyWPF {
         }
 
         protected void PrintRoutesOnMapButton_Click(object sender, RoutedEventArgs e) {
+            List<Route> routePaths = getRoutePaths();
+            drawAllLinesOnMap(routePaths);
+            centerMapOnRouteStart(routePaths[0]);
+        }
+
+        public List<Route> getRoutePaths() {
             List<Route> routePaths = new List<Route>();
 
             foreach (string destination in destinations) {
@@ -69,11 +74,14 @@ namespace MyWPF {
                 routePaths.Add(routePath);
             }
 
+            return routePaths;
+        }
+
+        public void drawAllLinesOnMap(List<Route> routePaths) {
             foreach (Route route in routePaths) {
                 MapPolyline routeLine = createMapPolyLine(route);
                 drawLineOnMap(routeLine);
             }
-            centerMapOnRouteStart(routePaths[0]);
         }
 
         public WorkSheet getDataFromExcelFileFromPath(string filePath) {
@@ -112,20 +120,17 @@ namespace MyWPF {
         public Route getRouteFromUrl(string url, string fromCity, string toCity) {
             var json = new WebClient().DownloadString(url);
             dynamic jsonObj = JsonConvert.DeserializeObject<dynamic>(json);
-            var coordinateList = jsonObj["resourceSets"][0]["resources"][0]["routePath"]["line"]["coordinates"];
+            JArray coordinateList = jsonObj["resourceSets"][0]["resources"][0]["routePath"]["line"]["coordinates"];
 
-            List<Coordinate> coordinates = new List<Coordinate>();
-
-            for (int i = 0; i < coordinateList.Count; i++) {
-                Coordinate coordinate = new Coordinate(
-                    Convert.ToDouble(coordinateList[i][0].ToString()),
-                    Convert.ToDouble(coordinateList[i][1].ToString()));
-                coordinates.Add(coordinate);
-            }
-
+            List<Coordinate> coordinates = getCoordinates(coordinateList);
+            
             Route route = new(fromCity, toCity, coordinates);
 
             return route;
+        }
+
+        public List<Coordinate> getCoordinates(JArray coordinateList) {
+            return coordinateList.Select(c => new Coordinate(Convert.ToDouble(c[0].ToString()), Convert.ToDouble(c[1].ToString()))).ToList();
         }
     }
 }
