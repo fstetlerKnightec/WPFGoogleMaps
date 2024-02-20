@@ -13,7 +13,8 @@ namespace MyWPF {
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
-        private readonly string APIKEY = "DPkT2FfRTueyLqqZj3on~Q0nTGD7hmIXtB4ZPnGMdog~AllB5NgntcvtYNbdx0nHKeWTgDwwQjtoCYsKEdNJbULnLTHERmdJ31tK54P5NSKK";
+        private readonly string APIKEY = 
+            "DPkT2FfRTueyLqqZj3on~Q0nTGD7hmIXtB4ZPnGMdog~AllB5NgntcvtYNbdx0nHKeWTgDwwQjtoCYsKEdNJbULnLTHERmdJ31tK54P5NSKK";
 
         private readonly List<string> DESTINATIONS = [];
 
@@ -31,11 +32,12 @@ namespace MyWPF {
 
         protected void AddLocationButton_Click(object sender, RoutedEventArgs e) {
             //IronXL.Range fromCity = sheet["D1958"]; CAMPONA 1 dosnt work
-            IronXL.Range fromCity = SHEET["D1968:D1969"];
-            IronXL.Range fromRegionCountry = SHEET["E1968:E1969"];
+            //1965:1970 and 1982:1987
+            IronXL.Range fromCity = SHEET["D1960:D1970"];
+            IronXL.Range fromRegionCountry = SHEET["E1960:E1970"];
 
-            IronXL.Range toCity = SHEET["D1985:D1986"];
-            IronXL.Range toRegionCountry = SHEET["E1985:E1986"];
+            IronXL.Range toCity = SHEET["D1977:D1987"];
+            IronXL.Range toRegionCountry = SHEET["E1977:E1987"];
 
             AddDestinationsToList(fromCity, fromRegionCountry, toCity, toRegionCountry);
 
@@ -44,6 +46,9 @@ namespace MyWPF {
 
         protected void PrintRoutesOnMapButton_Click(object sender, RoutedEventArgs e) {
             List<Route> routePaths = GetRoutePaths();
+            //if (routePaths.Count == 0) {
+            //    return;
+            //} 
             DrawAllLinesOnMap(routePaths);
             CenterMapOnRouteStart(routePaths[0]);
         }
@@ -115,11 +120,33 @@ namespace MyWPF {
             return new(coordinates);
         }
 
+        //private Route GetRouteFromUrl(string url) {
+        //    JArray coordinateList = GetCoordinateList(url);
+        //    if (coordinateList == 404) {
+        //        return emptylist;
+        //    }
+        //    List<Coordinate> coordinates = GetCoordinates(coordinateList);
+        //    return new(coordinates);
+        //}
+
         private JArray GetCoordinateList(string url) {
             string json = new WebClient().DownloadString(url);
             dynamic jsonObj = JsonConvert.DeserializeObject<dynamic>(json);
             return jsonObj["resourceSets"][0]["resources"][0]["routePath"]["line"]["coordinates"];
         }
+
+        //private JArray GetCoordinateList(string url) {
+
+        //    try {
+        //        string json = new WebClient().DownloadString(url);
+        //        dynamic jsonObj = JsonConvert.DeserializeObject<dynamic>(json);
+        //        return jsonObj["resourceSets"][0]["resources"][0]["routePath"]["line"]["coordinates"];
+        //    } catch (WebException we) {
+        //        if (we.Status == WebExceptionStatus.) {
+                    
+        //        }
+        //    }
+        //}
 
         private List<Coordinate> GetCoordinates(JArray coordinateList) {
             return coordinateList.Select(c => new Coordinate(Convert.ToDouble(c[0].ToString()), Convert.ToDouble(c[1].ToString()))).ToList();
