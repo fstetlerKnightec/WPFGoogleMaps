@@ -11,6 +11,14 @@ using System.Windows;
 using System.Windows.Media;
 using Microsoft.Maps.MapControl.WPF.Design;
 using PolylineEncoder;
+using System.Windows.Shapes;
+using PolylinerNet;
+using PolylineEncoder.Net.Utility.Decoders;
+
+using NetTopologySuite.IO;
+using NetTopologySuite.Geometries;
+using GoogleMapsApi;
+using GoogleMapsApi.Entities.Directions.Request;
 
 namespace MyWPF {
     /// <summary>
@@ -159,7 +167,34 @@ namespace MyWPF {
             string json = new WebClient().DownloadString(url);
             dynamic jsonObj = JsonConvert.DeserializeObject<dynamic>(json);
             for (int i = 0; i < 31; i++) {
-                jArray.Add(jsonObj["routes"][0]["legs"][0]["steps"][i]["start_location"]);
+                JArray array = new JArray();
+                //array.Add(jsonObj["routes"][0]["legs"][0]["steps"][i]["start_location"]["lat"]);
+                //array.Add(jsonObj["routes"][0]["legs"][0]["steps"][i]["start_location"]["lng"]);
+                //jArray.Add(array);
+                string polyline = jsonObj["routes"][0]["legs"][0]["steps"][i]["polyline"]["points"];
+
+                for (int j = 0; j < DecodePolyline(polyline).Count; j++) {
+                    JArray array1 = new JArray();
+                    array1.Add(DecodePolyline(polyline)[j].Item1);
+                    array1.Add(DecodePolyline(polyline)[j].Item2);
+                    jArray.Add(array1);
+                }
+
+
+
+
+                //for (int j = 0; j < DecodePolyline(polyline).Count; j++) {
+
+                    
+                //    hash.Add("lat:" + DecodePolyline(polyline)[j].Item1);
+                //    array.Add("lng:" + DecodePolyline(polyline)[j].Item2);
+                //    jArray.Add(array);
+                //}
+                
+                //Console.WriteLine(polyline);
+
+
+                
             }
             return jArray;
 
@@ -199,11 +234,50 @@ namespace MyWPF {
         //}
 
         private List<Coordinate> GetCoordinatesGoogle(JArray coordinateList) {
-            return coordinateList.Select(c => new Coordinate(Convert.ToDouble((c["lat"]).ToString()), Convert.ToDouble(c["lng"].ToString()))).ToList();
+            return coordinateList.Select(c => new Coordinate(Convert.ToDouble((c[0]).ToString()), Convert.ToDouble(c[1].ToString()))).ToList();
         }
 
         private List<Coordinate> GetCoordinates(JArray coordinateList) {
             return coordinateList.Select(c => new Coordinate(Convert.ToDouble(c[0].ToString()), Convert.ToDouble(c[1].ToString()))).ToList();
+        }
+
+
+
+        static List<(double, double)> DecodePolyline(string polylinePoints) {
+            List<(double, double)> coordinates = new List<(double, double)>();
+            int index = 0;
+            int latitude = 0;
+            int longitude = 0;
+
+            while (index < polylinePoints.Length) {
+                int shift = 0;
+                int result = 0;
+                int b;
+                do {
+                    b = polylinePoints[index++] - 63;
+                    result |= (b & 0x1f) << shift;
+                    shift += 5;
+                } while (b >= 0x20);
+                int dlat = ((result & 1) != 0 ? ~(result >> 1) : (result >> 1));
+                latitude += dlat;
+
+                shift = 0;
+                result = 0;
+                do {
+                    b = polylinePoints[index++] - 63;
+                    result |= (b & 0x1f) << shift;
+                    shift += 5;
+                } while (b >= 0x20);
+                int dlng = ((result & 1) != 0 ? ~(result >> 1) : (result >> 1));
+                longitude += dlng;
+
+                double lat = latitude / 1e5;
+                double lng = longitude / 1e5;
+
+                coordinates.Add((lat, lng));
+            }
+
+            return coordinates;
         }
     }
 }

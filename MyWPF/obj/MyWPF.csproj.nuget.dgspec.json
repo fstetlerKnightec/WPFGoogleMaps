@@ -109,6 +109,10 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "GoogleMapsApi": {
+              "target": "Package",
+              "version": "[1.2.1, )"
+            },
             "MaterialDesignThemes": {
               "target": "Package",
               "version": "[4.9.0, )"
@@ -117,6 +121,10 @@
               "target": "Package",
               "version": "[1.0.0.3, )"
             },
+            "NetTopologySuite.IO": {
+              "target": "Package",
+              "version": "[1.14.0.1, )"
+            },
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.3, )"
@@ -124,6 +132,10 @@
             "PolylineEncoder.Net": {
               "target": "Package",
               "version": "[1.0.1, )"
+            },
+            "Polyliner.Net": {
+              "target": "Package",
+              "version": "[1.0.2, )"
             },
             "Xceed.Wpf.Themes.MaterialDesign": {
               "target": "Package",

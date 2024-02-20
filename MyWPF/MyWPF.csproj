@@ -10,10 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="GoogleMapsApi" Version="1.2.1" />
     <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
     <PackageReference Include="Microsoft.Maps.MapControl.WPF" Version="1.0.0.3" />
+    <PackageReference Include="NetTopologySuite.IO" Version="1.14.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="PolylineEncoder.Net" Version="1.0.1" />
+    <PackageReference Include="Polyliner.Net" Version="1.0.2" />
     <PackageReference Include="Xceed.Wpf.Themes.MaterialDesign" Version="4.5.23158.1451" />
   </ItemGroup>
 

@@ -56,3 +56,14 @@ C:\Programming\C#\WPFGoogleMaps\MyWPF\obj\Debug\net8.0-windows\MyWPF.genruntimec
 C:\Programming\C#\WPFGoogleMaps\MyWPF\obj\Debug\net8.0-windows\ref\MyWPF.dll
 C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\resources\Unilever_Spaltenindex_Eiger 8 Jahrestender.xlsx
 C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\PolylineEncoder.Net.dll
+C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\GeoAPI.dll
+C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\GoogleMapsApi.dll
+C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\NetTopologySuite.dll
+C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\PowerCollections.dll
+C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\NetTopologySuite.IO.GeoTools.dll
+C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\NetTopologySuite.IO.MsSqlSpatial.dll
+C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\NetTopologySuite.IO.PostGis.dll
+C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\NetTopologySuite.IO.ShapeFile.Extended.dll
+C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\NetTopologySuite.IO.ShapeFile.dll
+C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\NetTopologySuite.IO.dll
+C:\Programming\C#\WPFGoogleMaps\MyWPF\bin\Debug\net8.0-windows\PolylinerNet.dll
