@@ -1,33 +1,18 @@
 ﻿using IronXL;
 using Microsoft.Maps.MapControl.WPF;
-using Microsoft.Maps;
 using MyClassLibrary;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Text;
 using System.Windows;
 using System.Windows.Media;
-using Microsoft.Maps.MapControl.WPF.Design;
-using PolylineEncoder;
-using System.Windows.Shapes;
-using PolylinerNet;
-using PolylineEncoder.Net.Utility.Decoders;
-
-using NetTopologySuite.IO;
-using NetTopologySuite.Geometries;
-using GoogleMapsApi;
-using GoogleMapsApi.Entities.Directions.Request;
 
 namespace MyWPF {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window {
-        private readonly string APIKEY = 
-            "DPkT2FfRTueyLqqZj3on~Q0nTGD7hmIXtB4ZPnGMdog~AllB5NgntcvtYNbdx0nHKeWTgDwwQjtoCYsKEdNJbULnLTHERmdJ31tK54P5NSKK";
-
         private readonly string GOOGLE_APIKEY =
             "AIzaSyBM_ZnbQ_ahHUBjSieaaMOgP7_eSK7gFvw";
 
@@ -65,9 +50,6 @@ namespace MyWPF {
 
         protected void PrintRoutesOnMapButton_Click(object sender, RoutedEventArgs e) {
             List<Route> routePaths = GetRoutePaths();
-            //if (routePaths.Count == 0) {
-            //    return;
-            //} 
             DrawAllLinesOnMap(routePaths);
             CenterMapOnRouteStart(routePaths[0]);
         }
@@ -80,13 +62,6 @@ namespace MyWPF {
                 d.Split(" -> ")[0],
                 d.Split(" -> ")[1])))
                 .ToList();
-
-            //return DESTINATIONS.Select(d =>
-            //GetRouteFromUrl(String.Format(
-            //    "https://dev.virtualearth.net/REST/V1/Routes/Driving?wp.0={0}&wp.1={1}&optmz=distance&routeAttributes=routePath&key=" + APIKEY,
-            //    d.Split(" -> ")[0],
-            //    d.Split(" -> ")[1])))
-            //    .ToList();
         }
 
         private void AddDestinationsToList(string fromCity, string fromRegionCountry, string toCity, string toRegionCountry) {
@@ -153,97 +128,28 @@ namespace MyWPF {
             return new(coordinates);
         }
 
-        //private Route GetRouteFromUrl(string url) {
-        //    JArray coordinateList = GetCoordinateList(url);
-        //    if (coordinateList == 404) {
-        //        return emptylist;
-        //    }
-        //    List<Coordinate> coordinates = GetCoordinates(coordinateList);
-        //    return new(coordinates);
-        //}
-
         private JArray GetCoordinateListGoogle(string url) {
             JArray jArray = new JArray();
             string json = new WebClient().DownloadString(url);
             dynamic jsonObj = JsonConvert.DeserializeObject<dynamic>(json);
-            for (int i = 0; i < 31; i++) {
-                JArray array = new JArray();
-                //array.Add(jsonObj["routes"][0]["legs"][0]["steps"][i]["start_location"]["lat"]);
-                //array.Add(jsonObj["routes"][0]["legs"][0]["steps"][i]["start_location"]["lng"]);
-                //jArray.Add(array);
+            for (int i = 0; i < jsonObj["routes"][0]["legs"][0]["steps"].Count; i++) {
                 string polyline = jsonObj["routes"][0]["legs"][0]["steps"][i]["polyline"]["points"];
-
                 for (int j = 0; j < DecodePolyline(polyline).Count; j++) {
                     JArray array1 = new JArray();
                     array1.Add(DecodePolyline(polyline)[j].Item1);
                     array1.Add(DecodePolyline(polyline)[j].Item2);
                     jArray.Add(array1);
                 }
-
-
-
-
-                //for (int j = 0; j < DecodePolyline(polyline).Count; j++) {
-
-                    
-                //    hash.Add("lat:" + DecodePolyline(polyline)[j].Item1);
-                //    array.Add("lng:" + DecodePolyline(polyline)[j].Item2);
-                //    jArray.Add(array);
-                //}
-                
-                //Console.WriteLine(polyline);
-
-
-                
             }
             return jArray;
 
         }
 
-        //private JArray GetCoordinateList(string url) {
-
-        //    //using (HttpClient client = new HttpClient()) {
-        //    //    try {
-        //    //        HttpResponseMessage response = await client.GetAsync(url);
-
-        //    //        string jsonResult = await response.Content.ReadAsStringAsync();
-
-        //    //    } catch (HttpRequestException e) {
-        //    //        Console.WriteLine($"Error : {e.Message}");
-        //    //    }
-        //    //}
-
-
-
-        //    string json = new WebClient().DownloadString(url);
-        //    dynamic jsonObj = JsonConvert.DeserializeObject<dynamic>(json);
-        //    return jsonObj["resourceSets"][0]["resources"][0]["routePath"]["line"]["coordinates"];
-        //}
-
-        //private JArray GetCoordinateList(string url) {
-
-        //    try {
-        //        string json = new WebClient().DownloadString(url);
-        //        dynamic jsonObj = JsonConvert.DeserializeObject<dynamic>(json);
-        //        return jsonObj["resourceSets"][0]["resources"][0]["routePath"]["line"]["coordinates"];
-        //    } catch (WebException we) {
-        //        if (we.Status == WebExceptionStatus.) {
-
-        //        }
-        //    }
-        //}
-
         private List<Coordinate> GetCoordinatesGoogle(JArray coordinateList) {
             return coordinateList.Select(c => new Coordinate(Convert.ToDouble((c[0]).ToString()), Convert.ToDouble(c[1].ToString()))).ToList();
         }
 
-        private List<Coordinate> GetCoordinates(JArray coordinateList) {
-            return coordinateList.Select(c => new Coordinate(Convert.ToDouble(c[0].ToString()), Convert.ToDouble(c[1].ToString()))).ToList();
-        }
-
-
-
-        static List<(double, double)> DecodePolyline(string polylinePoints) {
+        private static List<(double, double)> DecodePolyline(string polylinePoints) {
             List<(double, double)> coordinates = new List<(double, double)>();
             int index = 0;
             int latitude = 0;
