@@ -13,6 +13,7 @@
     <PackageReference Include="MaterialDesignThemes" Version="4.9.0" />
     <PackageReference Include="Microsoft.Maps.MapControl.WPF" Version="1.0.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="PolylineEncoder.Net" Version="1.0.1" />
     <PackageReference Include="Xceed.Wpf.Themes.MaterialDesign" Version="4.5.23158.1451" />
   </ItemGroup>
 

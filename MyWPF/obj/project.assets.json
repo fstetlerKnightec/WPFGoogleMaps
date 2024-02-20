@@ -360,6 +360,19 @@
           }
         }
       },
+      "PolylineEncoder.Net/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net451/PolylineEncoder.Net.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net451/PolylineEncoder.Net.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "SixLabors.Fonts/2.0.0": {
         "type": "package",
         "compile": {
@@ -1158,6 +1171,21 @@
         "packageIcon.png"
       ]
     },
+    "PolylineEncoder.Net/1.0.1": {
+      "sha512": "RPtCOhI4B+HjgqRXycPq/w7DRReQMd17zwN9/EYAaF3TZkJKYT1WY2FvSP0VoBCQ6fVDlPjOvWl+O9GzrwLMVA==",
+      "type": "package",
+      "path": "polylineencoder.net/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/dotnet5.4/PolylineEncoder.Net.dll",
+        "lib/dotnet5.4/PolylineEncoder.Net.xml",
+        "lib/net451/PolylineEncoder.Net.dll",
+        "lib/net451/PolylineEncoder.Net.xml",
+        "polylineencoder.net.1.0.1.nupkg.sha512",
+        "polylineencoder.net.nuspec"
+      ]
+    },
     "SixLabors.Fonts/2.0.0": {
       "sha512": "7kQOwkob8OBTmUWXGUBZuLvRC436IChLzXX0oF3ak+YqXwQDAs9MpuKdvujygcVhs8RyykBSpBpReCi5cQG+iA==",
       "type": "package",
@@ -1582,6 +1610,7 @@
       "Microsoft.Maps.MapControl.WPF >= 1.0.0.3",
       "MyClassLibrary >= 1.0.0",
       "Newtonsoft.Json >= 13.0.3",
+      "PolylineEncoder.Net >= 1.0.1",
       "Xceed.Wpf.Themes.MaterialDesign >= 4.5.23158.1451"
     ]
   },
@@ -1640,6 +1669,10 @@
             "target": "Package",
             "version": "[13.0.3, )"
           },
+          "PolylineEncoder.Net": {
+            "target": "Package",
+            "version": "[1.0.1, )"
+          },
           "Xceed.Wpf.Themes.MaterialDesign": {
             "target": "Package",
             "version": "[4.5.23158.1451, )"
@@ -1685,6 +1718,16 @@
       "warningLevel": 1,
       "message": "Package 'Microsoft.Maps.MapControl.WPF 1.0.0.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0-windows7.0'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.Maps.MapControl.WPF",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'PolylineEncoder.Net 1.0.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "PolylineEncoder.Net",
       "targetGraphs": [
         "net8.0-windows7.0"
       ]
